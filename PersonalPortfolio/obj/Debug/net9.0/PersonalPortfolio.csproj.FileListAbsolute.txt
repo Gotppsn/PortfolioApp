@@ -45,8 +45,6 @@ C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\Microsoft.Win32.Registry.w69ya3jgm7.wasm
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\mscorlib.wzkfrp7u5k.wasm
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\netstandard.d82br99ghv.wasm
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.soruxckjb8.pdb
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.otdio8qasq.wasm
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.AppContext.brstoo7rmv.wasm
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Buffers.y31fti4j86.wasm
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Collections.Concurrent.kb0mdoldj7.wasm
@@ -317,7 +315,6 @@ C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Collections.NonGeneric.1qh9om2u2p.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Net.WebSockets.Client.8c4uwwg311.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.IO.FileSystem.vgbx8s3be4.wasm.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.otdio8qasq.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.IO.FileSystem.DriveInfo.0zghtgeywx.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Security.Cryptography.Encoding.1psop5tcxx.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Net.WebHeaderCollection.5gtd4kxeqn.wasm.gz
@@ -399,7 +396,6 @@ C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Linq.Parallel.pca2fk0v6a.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.AppContext.brstoo7rmv.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Globalization.Extensions.hal5qdz64m.wasm.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.soruxckjb8.pdb.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\Microsoft.CSharp.rtelzgo5qn.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\Microsoft.Extensions.Configuration.Json.u8iuy20vvu.wasm.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\System.Diagnostics.Debug.f876p8bdl7.wasm.gz
@@ -820,8 +816,6 @@ C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\blazor.bo
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\cq3ix7kkt4-8rbvw3on5j.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\5bxb2meyqr-5ipweew5fc.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\uv8y0fv2q3-5ipweew5fc.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\jfyn57ckgy-ou6pg8drkh.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\sq5twvzukx-5ipweew5fc.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\ie7x7etkuu-bqjiyaj88i.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\lvovflifwg-c2jlpeoesf.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\oby1ut5syn-erw9l3u2r3.gz
@@ -1070,9 +1064,6 @@ C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compresse
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\gwjiwklyj6-tjcz0u77k5.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\2vhor1y38o-tptq2av103.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\13s91yvt03-lfu7j35m59.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\j6bcx96vto-otdio8qasq.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\xwgwym6dsy-soruxckjb8.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\mx6lsyc2pl-cqsn1rcrab.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -1087,3 +1078,12 @@ C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalP
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\refint\PersonalPortfolio.dll
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.pdb
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\ref\PersonalPortfolio.dll
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.tb0zaxf91y.pdb
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.eou6wjsy46.wasm
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.eou6wjsy46.wasm.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.tb0zaxf91y.pdb.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\jfyn57ckgy-j0mdj8ka4f.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\sq5twvzukx-z18xowwcol.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\j6bcx96vto-eou6wjsy46.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\xwgwym6dsy-tb0zaxf91y.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\mx6lsyc2pl-nml007qx1k.gz
