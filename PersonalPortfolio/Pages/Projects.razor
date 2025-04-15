@@ -1,6 +1,7 @@
 @page "/projects"
 @page "/projects/{Id:int}"
 @inject ProjectService ProjectService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Projects - Developer Portfolio</PageTitle>
 
@@ -12,21 +13,26 @@
         var project = ProjectService.GetProjectById(Id.Value);
         
         <div class="mb-6">
-            <a href="/projects" class="text-blue-600 hover:underline">&larr; Back to all projects</a>
+            <a href="/projects" class="text-blue-600 hover:underline flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Back to all projects
+            </a>
         </div>
         
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="@project.ImageUrl" alt="@project.Title" class="w-full h-64 object-cover" />
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+            <img src="@project.ImageUrl" alt="@project.Title" class="w-full h-64 md:h-96 object-cover" />
             <div class="p-8">
                 <h2 class="text-3xl font-bold mb-4">@project.Title</h2>
-                <p class="text-gray-700 mb-6">@project.Description</p>
+                <p class="text-gray-700 dark:text-gray-300 mb-6">@project.Description</p>
                 
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold mb-2">Technologies Used</h3>
                     <div class="flex flex-wrap">
                         @foreach (var tech in project.Technologies)
                         {
-                            <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 mb-2 px-2.5 py-0.5 rounded">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium mr-2 mb-2 px-3 py-1 rounded">
                                 @tech
                             </span>
                         }
@@ -37,59 +43,156 @@
                     <h3 class="text-xl font-semibold mb-2">Project Links</h3>
                     <div class="flex space-x-4">
                         <a href="@project.GitHubUrl" target="_blank" 
-                           class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                           class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded flex items-center">
+                            <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                            </svg>
                             GitHub Repository
                         </a>
                         <a href="@project.LiveDemoUrl" target="_blank"
-                           class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                           class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
                             Live Demo
                         </a>
                     </div>
                 </div>
+
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-2">Share This Project</h3>
+                    <SocialShare 
+                        Url="@($"{NavigationManager.BaseUri}projects/{project.Id}")" 
+                        Title="@project.Title" 
+                        Description="@project.Description" />
+                </div>
                 
                 <div>
                     <h3 class="text-xl font-semibold mb-2">Completion Date</h3>
-                    <p class="text-gray-700">@project.DateCompleted.ToString("MMMM yyyy")</p>
+                    <p class="text-gray-700 dark:text-gray-300">@project.DateCompleted.ToString("MMMM yyyy")</p>
                 </div>
             </div>
         </div>
     }
     else
     {
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach (var project in ProjectService.GetAllProjects())
-            {
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <img src="@project.ImageUrl" alt="@project.Title" class="w-full h-48 object-cover" />
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">@project.Title</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-3">@project.Description</p>
-                        <div class="flex flex-wrap mb-4">
-                            @foreach (var tech in project.Technologies.Take(3))
-                            {
-                                <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded">
-                                    @tech
-                                </span>
-                            }
-                            @if (project.Technologies.Count > 3)
-                            {
-                                <span class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded">
-                                    +@(project.Technologies.Count - 3) more
-                                </span>
-                            }
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-8">
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flex-grow">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
                         </div>
-                        <a href="/projects/@project.Id" 
-                           class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
-                            View Details
-                        </a>
+                        <input type="text" @bind-value="searchTerm" @bind-value:event="oninput" @onkeyup="FilterProjects" placeholder="Search projects..."
+                               class="pl-10 w-full border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-white p-2 focus:ring-blue-500 focus:border-blue-500" />
                     </div>
+                </div>
+                <div>
+                    <select @bind="selectedTechnology" @bind:after="FilterProjects" class="w-full border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-white p-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">All Technologies</option>
+                        @foreach (var tech in allTechnologies)
+                        {
+                            <option value="@tech">@tech</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    <select @bind="sortOption" @bind:after="FilterProjects" class="w-full border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-white p-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="alphabetical">Alphabetical</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach (var project in filteredProjects)
+            {
+                <div class="project-card group animate-fadeIn" style="animation-delay: @($"{projects.IndexOf(project) * 100}ms")">
+                    <ProjectCard Project="@project" />
                 </div>
             }
         </div>
+
+        @if (!filteredProjects.Any())
+        {
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p class="text-gray-600 dark:text-gray-300 text-lg">No projects found matching your criteria.</p>
+                <button @onclick="ClearFilters" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">Clear Filters</button>
+            </div>
+        }
     }
 </div>
 
 @code {
     [Parameter]
     public int? Id { get; set; }
+
+    private List<Project> projects = new();
+    private List<Project> filteredProjects = new();
+    private List<string> allTechnologies = new();
+    
+    private string searchTerm = "";
+    private string selectedTechnology = "";
+    private string sortOption = "newest";
+
+    protected override void OnInitialized()
+    {
+        projects = ProjectService.GetAllProjects();
+        filteredProjects = projects;
+        
+        // Extract all unique technologies from projects
+        allTechnologies = projects
+            .SelectMany(p => p.Technologies)
+            .Distinct()
+            .OrderBy(t => t)
+            .ToList();
+
+        FilterProjects();
+    }
+
+    private void FilterProjects()
+    {
+        filteredProjects = projects;
+
+        // Filter by search term
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            filteredProjects = filteredProjects
+                .Where(p => p.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) || 
+                           p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
+        // Filter by technology
+        if (!string.IsNullOrWhiteSpace(selectedTechnology))
+        {
+            filteredProjects = filteredProjects
+                .Where(p => p.Technologies.Contains(selectedTechnology))
+                .ToList();
+        }
+
+        // Sort results
+        filteredProjects = sortOption switch
+        {
+            "newest" => filteredProjects.OrderByDescending(p => p.DateCompleted).ToList(),
+            "oldest" => filteredProjects.OrderBy(p => p.DateCompleted).ToList(),
+            "alphabetical" => filteredProjects.OrderBy(p => p.Title).ToList(),
+            _ => filteredProjects
+        };
+    }
+
+    private void ClearFilters()
+    {
+        searchTerm = "";
+        selectedTechnology = "";
+        sortOption = "newest";
+        FilterProjects();
+    }
 }
