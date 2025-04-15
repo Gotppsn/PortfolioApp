@@ -1,0 +1,152 @@
+@page "/projects"
+@using PortfolioApp.Shared.Models
+@inject IProjectService ProjectService
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+@inject AuthenticationStateProvider AuthStateProvider
+
+<PageTitle>Projects</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge">
+    <MudPaper Elevation="0" Class="d-flex align-center justify-space-between py-2 px-1">
+        <MudText Typo="Typo.h4">Projects</MudText>
+        <AuthorizeView>
+            <Authorized>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add"
+                           Href="/projects/create">
+                    New Project
+                </MudButton>
+            </Authorized>
+        </AuthorizeView>
+    </MudPaper>
+
+    @if (_loading)
+    {
+        <div class="d-flex justify-center my-4">
+            <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+        </div>
+    }
+    else if (_projects == null || !_projects.Any())
+    {
+        <MudPaper Class="d-flex align-center justify-center pa-6" Elevation="0">
+            <MudText Typo="Typo.h6" Color="Color.Secondary">No projects found.</MudText>
+        </MudPaper>
+    }
+    else
+    {
+        <MudGrid>
+            @foreach (var project in _projects)
+            {
+                <MudItem xs="12" sm="6" md="4">
+                    <MudCard Class="h-100" @onclick="@(() => ShowProject(project.Id))" Style="cursor: pointer;">
+                        @if (!string.IsNullOrEmpty(project.ThumbnailUrl))
+                        {
+                            <MudCardMedia Image="@project.ThumbnailUrl" Height="200" />
+                        }
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6" Inline="true">@project.Title</MudText>
+                                @if (!project.IsPublic)
+                                {
+                                    <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Small" Class="ml-2" />
+                                }
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudText Typo="Typo.body2" Class="mud-text-secondary">
+                                @(FormatDateRange(project.StartDate, project.EndDate))
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="mud-text-secondary mb-4">
+                                @(project.Description.Length > 150 ? project.Description.Substring(0, 150) + "..." : project.Description)
+                            </MudText>
+                            <div class="d-flex flex-wrap gap-1">
+                                @foreach (var tech in project.Technologies.Take(5))
+                                {
+                                    <MudChip Size="Size.Small" Color="Color.Primary" Variant="Variant.Outlined">
+                                        @tech.Name
+                                    </MudChip>
+                                }
+                                @if (project.Technologies.Count > 5)
+                                {
+                                    <MudChip Size="Size.Small" Color="Color.Secondary" Variant="Variant.Outlined">
+                                        +@(project.Technologies.Count - 5) more
+                                    </MudChip>
+                                }
+                            </div>
+                        </MudCardContent>
+                        <MudCardActions>
+                            @if (!string.IsNullOrEmpty(project.DemoUrl))
+                            {
+                                <MudIconButton Icon="@Icons.Material.Filled.Visibility" Color="Color.Primary" Size="Size.Small"
+                                              @onclick="@(() => OpenUrl(project.DemoUrl))" @onclick:stopPropagation="true"
+                                              Title="View Demo" />
+                            }
+                            @if (!string.IsNullOrEmpty(project.SourceCodeUrl))
+                            {
+                                <MudIconButton Icon="@Icons.Material.Filled.Code" Color="Color.Secondary" Size="Size.Small"
+                                              @onclick="@(() => OpenUrl(project.SourceCodeUrl))" @onclick:stopPropagation="true"
+                                              Title="View Source Code" />
+                            }
+                            <AuthorizeView>
+                                <Authorized>
+                                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default" Size="Size.Small"
+                                                  @onclick="@(() => EditProject(project.Id))" @onclick:stopPropagation="true"
+                                                  Title="Edit Project" />
+                                </Authorized>
+                            </AuthorizeView>
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+            }
+        </MudGrid>
+    }
+</MudContainer>
+
+@code {
+    private List<ProjectDto>? _projects;
+    private bool _loading = true;
+    private bool _isAuthenticated = false;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        _isAuthenticated = authState.User.Identity?.IsAuthenticated ?? false;
+        
+        await LoadProjects();
+    }
+
+    private async Task LoadProjects()
+    {
+        _loading = true;
+        _projects = await ProjectService.GetProjectsAsync(_isAuthenticated);
+        _loading = false;
+    }
+
+    private void ShowProject(int id)
+    {
+        Navigation.NavigateTo($"/projects/{id}");
+    }
+
+    private void EditProject(int id)
+    {
+        Navigation.NavigateTo($"/projects/edit/{id}");
+    }
+
+    private void OpenUrl(string url)
+    {
+        Navigation.NavigateTo(url, true);
+    }
+
+    private string FormatDateRange(DateTime start, DateTime? end)
+    {
+        var startStr = start.ToString("MMM yyyy");
+        
+        if (end.HasValue)
+        {
+            var endStr = end.Value.ToString("MMM yyyy");
+            return $"{startStr} - {endStr}";
+        }
+        
+        return $"{startStr} - Present";
+    }
+}

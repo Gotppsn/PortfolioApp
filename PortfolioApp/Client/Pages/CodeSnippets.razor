@@ -1,0 +1,208 @@
+@page "/code-snippets"
+@using PortfolioApp.Shared.Models
+@inject ICodeSnippetService CodeSnippetService
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+@inject AuthenticationStateProvider AuthStateProvider
+
+<PageTitle>Code Snippets</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge">
+    <MudPaper Elevation="0" Class="d-flex align-center justify-space-between flex-wrap py-2 px-1 gap-2">
+        <MudText Typo="Typo.h4">Code Snippets</MudText>
+        <div class="d-flex gap-2 flex-wrap">
+            <MudAutocomplete T="string" Label="Filter by Language"
+                           @bind-Value="_selectedLanguage"
+                           SearchFunc="@SearchLanguages"
+                           ResetValueOnEmptyText="true"
+                           CoerceText="true"
+                           AdornmentIcon="@Icons.Material.Filled.Language"
+                           AdornmentColor="Color.Primary"
+                           OnClearButtonClick="@(() => FilterSnippets(null, _selectedTag))"
+                           Clearable="true" />
+                           
+            <MudAutocomplete T="string" Label="Filter by Tag"
+                           @bind-Value="_selectedTag"
+                           SearchFunc="@SearchTags"
+                           ResetValueOnEmptyText="true"
+                           CoerceText="true"
+                           AdornmentIcon="@Icons.Material.Filled.Tag"
+                           AdornmentColor="Color.Secondary"
+                           OnClearButtonClick="@(() => FilterSnippets(_selectedLanguage, null))"
+                           Clearable="true" />
+            
+            <AuthorizeView>
+                <Authorized>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add"
+                               Href="/code-snippets/create">
+                        New Snippet
+                    </MudButton>
+                </Authorized>
+            </AuthorizeView>
+        </div>
+    </MudPaper>
+
+    @if (_loading)
+    {
+        <div class="d-flex justify-center my-4">
+            <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+        </div>
+    }
+    else if (_snippets == null || !_snippets.Any())
+    {
+        <MudPaper Class="d-flex align-center justify-center pa-6" Elevation="0">
+            <MudText Typo="Typo.h6" Color="Color.Secondary">No code snippets found.</MudText>
+        </MudPaper>
+    }
+    else
+    {
+        <MudGrid>
+            @foreach (var snippet in _snippets)
+            {
+                <MudItem xs="12" md="6">
+                    <MudCard Class="h-100" @onclick="@(() => ShowSnippet(snippet.Id))" Style="cursor: pointer;">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <div class="d-flex align-center">
+                                    <MudText Typo="Typo.h6" Inline="true">@snippet.Title</MudText>
+                                    @if (!snippet.IsPublic)
+                                    {
+                                        <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Small" Class="ml-2" />
+                                    }
+                                </div>
+                                <MudText Typo="Typo.body2" Class="mud-text-secondary">
+                                    @snippet.Language
+                                </MudText>
+                            </CardHeaderContent>
+                            <CardHeaderActions>
+                                <MudChip Color="Color.Primary" Size="Size.Small">@snippet.Language</MudChip>
+                            </CardHeaderActions>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudText Typo="Typo.body2" Class="mb-2">
+                                @(snippet.Description.Length > 100 ? snippet.Description.Substring(0, 100) + "..." : snippet.Description)
+                            </MudText>
+                            
+                            <MudPaper Elevation="0" Class="pa-2 overflow-auto" Style="max-height: 200px; background-color: #f5f5f5;">
+                                <pre style="margin: 0;"><code class="language-@GetCodeHighlightLanguage(snippet.Language)">@(snippet.Code.Length > 500 ? snippet.Code.Substring(0, 500) + "..." : snippet.Code)</code></pre>
+                            </MudPaper>
+                            
+                            <div class="d-flex flex-wrap gap-1 mt-3">
+                                @foreach (var tag in snippet.Tags)
+                                {
+                                    <MudChip Size="Size.Small" Color="Color.Secondary" Variant="Variant.Outlined"
+                                            @onclick="@(() => FilterSnippets(null, tag.Name))" @onclick:stopPropagation="true">
+                                        @tag.Name
+                                    </MudChip>
+                                }
+                            </div>
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudText Typo="Typo.caption" Color="Color.Secondary">
+                                Last updated: @snippet.LastModified.ToString("MMM dd, yyyy")
+                            </MudText>
+                            <MudSpacer />
+                            @if (!string.IsNullOrEmpty(snippet.GitHubUrl))
+                            {
+                                <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Default" Size="Size.Small"
+                                              @onclick="@(() => OpenUrl(snippet.GitHubUrl))" @onclick:stopPropagation="true"
+                                              Title="View on GitHub" />
+                            }
+                            <AuthorizeView>
+                                <Authorized>
+                                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default" Size="Size.Small"
+                                                  @onclick="@(() => EditSnippet(snippet.Id))" @onclick:stopPropagation="true"
+                                                  Title="Edit Snippet" />
+                                </Authorized>
+                            </AuthorizeView>
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+            }
+        </MudGrid>
+    }
+</MudContainer>
+
+@code {
+    private List<CodeSnippetDto>? _snippets;
+    private List<string> _languages = new();
+    private List<TagDto> _tags = new();
+    private string? _selectedLanguage;
+    private string? _selectedTag;
+    private bool _loading = true;
+    private bool _isAuthenticated = false;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        _isAuthenticated = authState.User.Identity?.IsAuthenticated ?? false;
+        
+        await LoadLanguagesAndTags();
+        await LoadSnippets();
+    }
+
+    private async Task LoadSnippets()
+    {
+        _loading = true;
+        _snippets = await CodeSnippetService.GetCodeSnippetsAsync(_isAuthenticated, _selectedTag, _selectedLanguage);
+        _loading = false;
+    }
+
+    private async Task LoadLanguagesAndTags()
+    {
+        _languages = await CodeSnippetService.GetLanguagesAsync();
+        _tags = await CodeSnippetService.GetTagsAsync();
+    }
+
+    private async Task<IEnumerable<string>> SearchLanguages(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            return _languages;
+        
+        return _languages.Where(l => l.Contains(value, StringComparison.OrdinalIgnoreCase));
+    }
+
+    private async Task<IEnumerable<string>> SearchTags(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            return _tags.Select(t => t.Name);
+        
+        return _tags.Select(t => t.Name)
+                   .Where(t => t.Contains(value, StringComparison.OrdinalIgnoreCase));
+    }
+
+    private async Task FilterSnippets(string? language, string? tag)
+    {
+        _selectedLanguage = language;
+        _selectedTag = tag;
+        await LoadSnippets();
+    }
+
+    private void ShowSnippet(int id)
+    {
+        Navigation.NavigateTo($"/code-snippets/{id}");
+    }
+
+    private void EditSnippet(int id)
+    {
+        Navigation.NavigateTo($"/code-snippets/edit/{id}");
+    }
+
+    private void OpenUrl(string url)
+    {
+        Navigation.NavigateTo(url, true);
+    }
+
+    private string GetCodeHighlightLanguage(string language)
+    {
+        // Map common language names to highlight.js language identifiers
+        return language.ToLower() switch
+        {
+            "c#" => "csharp",
+            "c++" => "cpp",
+            "javascript" => "js",
+            "typescript" => "ts",
+            _ => language.ToLower()
+        };
+    }
+}

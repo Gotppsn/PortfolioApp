@@ -1,0 +1,88 @@
+@inherits LayoutComponentBase
+@using PortfolioApp.Shared.Models
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudSpacer />
+        <AuthorizeView>
+            <Authorized>
+                <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                    <ActivatorContent>
+                        <MudAvatar Color="Color.Primary">@GetUserInitials()</MudAvatar>
+                    </ActivatorContent>
+                    <ChildContent>
+                        <MudMenuItem Icon="@Icons.Material.Filled.Person" Href="/profile">My Profile</MudMenuItem>
+                        <MudMenuItem Icon="@Icons.Material.Filled.Settings" Href="/account/settings">Settings</MudMenuItem>
+                        <MudDivider />
+                        <MudMenuItem Icon="@Icons.Material.Filled.Logout" OnClick="LogoutUser">Logout</MudMenuItem>
+                    </ChildContent>
+                </MudMenu>
+            </Authorized>
+            <NotAuthorized>
+                <MudButton Color="Color.Inherit" Href="/login">Login</MudButton>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" Href="/register" Class="ml-2">Register</MudButton>
+            </NotAuthorized>
+        </AuthorizeView>
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Portfolio App</MudText>
+        </MudDrawerHeader>
+        <NavMenu />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="my-4">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool _drawerOpen = true;
+    private UserInfoResponse? _userInfo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _userInfo = await AuthService.GetUserInfo();
+    }
+
+    private void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    private async Task LogoutUser()
+    {
+        await AuthService.Logout();
+        Navigation.NavigateTo("/", true);
+    }
+
+    private string GetUserInitials()
+    {
+        if (_userInfo == null)
+        {
+            return "?";
+        }
+
+        string initials = "";
+        
+        if (!string.IsNullOrEmpty(_userInfo.FirstName))
+        {
+            initials += _userInfo.FirstName[0];
+        }
+        
+        if (!string.IsNullOrEmpty(_userInfo.LastName))
+        {
+            initials += _userInfo.LastName[0];
+        }
+        
+        return initials.ToUpper();
+    }
+}
