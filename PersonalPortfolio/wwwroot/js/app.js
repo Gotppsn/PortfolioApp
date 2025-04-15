@@ -82,3 +82,17 @@ document.addEventListener('DOMContentLoaded', function() {
         window.initParallax();
     }
 });
+
+// Syntax highlighting function
+window.highlightCode = function() {
+    if (typeof hljs !== 'undefined') {
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+    }
+};
+
+// Copy to clipboard function
+window.copyToClipboard = function(text) {
+    return navigator.clipboard.writeText(text);
+};

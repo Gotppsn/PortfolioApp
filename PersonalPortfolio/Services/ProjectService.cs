@@ -5,6 +5,226 @@ namespace PersonalPortfolio.Services
 {
     public class ProjectService
     {
+        private readonly List<CodeSnippet> _codeSnippets = new()
+        {
+            new CodeSnippet
+            {
+                Id = 1,
+                Title = "Blazor Component Lifecycle Methods",
+                Description = "Common lifecycle methods used in Blazor components",
+                Language = "csharp",
+                Code = @"// OnInitialized - Called once when component is initialized
+        protected override void OnInitialized()
+        {
+            // Component initialization code
+        }
+
+        // OnInitializedAsync - Async version of OnInitialized
+        protected override async Task OnInitializedAsync()
+        {
+            await LoadDataAsync();
+        }
+
+        // OnParametersSet - Called when parameters are set
+        protected override void OnParametersSet()
+        {
+            // Handle parameter changes
+        }
+
+        // OnParametersSetAsync - Async version of OnParametersSet
+        protected override async Task OnParametersSetAsync()
+        {
+            await LoadDataBasedOnParametersAsync();
+        }
+
+        // OnAfterRender - Called after component has rendered
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (firstRender)
+            {
+                // First time component has rendered
+            }
+        }
+
+        // OnAfterRenderAsync - Async version of OnAfterRender
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await JSRuntime.InvokeVoidAsync(""initializeJsPlugin"");
+            }
+        }",
+                Tags = new List<string> { "Blazor", "C#", "Lifecycle" },
+                CreatedDate = DateTime.Now.AddDays(-5),
+                IsPublic = true
+            },
+            new CodeSnippet
+            {
+                Id = 2,
+                Title = "Tailwind CSS Flex Layout",
+                Description = "Common Tailwind CSS flex layout patterns",
+                Language = "html",
+                Code = @"<!-- Basic flexbox container -->
+        <div class=""flex"">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+        </div>
+
+        <!-- Column layout -->
+        <div class=""flex flex-col"">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+        </div>
+
+        <!-- Justify content (horizontal alignment) -->
+        <div class=""flex justify-start""><!-- Items aligned to start --></div>
+        <div class=""flex justify-center""><!-- Items aligned to center --></div>
+        <div class=""flex justify-end""><!-- Items aligned to end --></div>
+        <div class=""flex justify-between""><!-- Items with space between --></div>
+        <div class=""flex justify-around""><!-- Items with space around --></div>
+        <div class=""flex justify-evenly""><!-- Items with equal spacing --></div>
+
+        <!-- Align items (vertical alignment in row, horizontal in column) -->
+        <div class=""flex items-start""><!-- Items aligned to start --></div>
+        <div class=""flex items-center""><!-- Items aligned to center --></div>
+        <div class=""flex items-end""><!-- Items aligned to end --></div>
+        <div class=""flex items-stretch""><!-- Items stretched --></div>
+        <div class=""flex items-baseline""><!-- Items aligned to baseline --></div>
+
+        <!-- Responsive flex direction -->
+        <div class=""flex flex-col md:flex-row"">
+        <!-- Column on mobile, row on medium screens and up -->
+        </div>
+
+        <!-- Gap between items -->
+        <div class=""flex gap-4""><!-- 1rem gap between items --></div>
+
+        <!-- Grow and shrink -->
+        <div class=""flex"">
+        <div class=""flex-grow""><!-- Takes up remaining space --></div>
+        <div class=""flex-none""><!-- Does not grow or shrink --></div>
+        <div class=""flex-shrink""><!-- Can shrink if needed --></div>
+        </div>",
+                Tags = new List<string> { "Tailwind", "CSS", "Flexbox", "Layout" },
+                CreatedDate = DateTime.Now.AddDays(-2),
+                IsPublic = true
+            },
+            new CodeSnippet
+            {
+                Id = 3,
+                Title = "JavaScript Fetch API",
+                Description = "Examples of using the Fetch API for HTTP requests",
+                Language = "javascript",
+                Code = @"// Basic GET request
+        fetch('https://api.example.com/data')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data received:', data);
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+
+        // POST request with JSON body
+        fetch('https://api.example.com/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: 'John Doe',
+            email: 'john@example.com'
+        })
+        })
+        .then(response => response.json())
+        .then(data => console.log('User created:', data))
+        .catch(error => console.error('Error:', error));
+
+        // Using async/await
+        async function fetchData() {
+        try {
+            const response = await fetch('https://api.example.com/data');
+            if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log('Data received:', data);
+            return data;
+        } catch (error) {
+            console.error('Fetch error:', error);
+        }
+        }
+
+        // Including credentials (cookies)
+        fetch('https://api.example.com/profile', {
+        credentials: 'include' // Sends cookies
+        })
+        .then(response => response.json())
+        .then(data => console.log('Profile:', data));
+
+        // With timeout using AbortController
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+        fetch('https://api.example.com/data', {
+        signal: controller.signal
+        })
+        .then(response => response.json())
+        .then(data => {
+            clearTimeout(timeoutId);
+            console.log('Data:', data);
+        })
+        .catch(error => {
+            if (error.name === 'AbortError') {
+            console.log('Request timed out');
+            } else {
+            console.error('Fetch error:', error);
+            }
+        });",
+                Tags = new List<string> { "JavaScript", "Fetch", "API", "AJAX" },
+                CreatedDate = DateTime.Now.AddDays(-7),
+                IsPublic = false
+            }
+        };
+
+        public List<CodeSnippet> GetAllCodeSnippets() => _codeSnippets;
+        public CodeSnippet GetCodeSnippetById(int id) => _codeSnippets.FirstOrDefault(c => c.Id == id) ?? new CodeSnippet();
+        public List<CodeSnippet> GetPublicCodeSnippets() => _codeSnippets.Where(c => c.IsPublic).ToList();
+        public List<string> GetAllLanguages() => _codeSnippets.Select(c => c.Language).Distinct().OrderBy(l => l).ToList();
+        public List<string> GetAllTags() => _codeSnippets.SelectMany(c => c.Tags).Distinct().OrderBy(t => t).ToList();
+
+        public List<CodeSnippet> SearchCodeSnippets(string searchTerm, string language = null, string tag = null)
+        {
+            var result = _codeSnippets.AsEnumerable();
+            
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                searchTerm = searchTerm.ToLower();
+                result = result.Where(c => 
+                    c.Title.ToLower().Contains(searchTerm) || 
+                    c.Description.ToLower().Contains(searchTerm) ||
+                    c.Code.ToLower().Contains(searchTerm));
+            }
+            
+            if (!string.IsNullOrWhiteSpace(language))
+            {
+                result = result.Where(c => c.Language.Equals(language, StringComparison.OrdinalIgnoreCase));
+            }
+            
+            if (!string.IsNullOrWhiteSpace(tag))
+            {
+                result = result.Where(c => c.Tags.Any(t => t.Equals(tag, StringComparison.OrdinalIgnoreCase)));
+            }
+            
+            return result.ToList();
+        }
         private readonly List<Project> _projects = new()
         {
             new Project
@@ -92,4 +312,5 @@ namespace PersonalPortfolio.Services
         public List<Skill> GetSkillsByCategory(string category) => _skills.Where(s => s.Category == category).ToList();
         public List<string> GetSkillCategories() => _skills.Select(s => s.Category).Distinct().ToList();
     }
+    
 }

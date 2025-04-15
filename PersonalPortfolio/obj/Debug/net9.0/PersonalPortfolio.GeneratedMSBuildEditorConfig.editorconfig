@@ -44,12 +44,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTa2lsbEJhZGdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/got01/Desktop/PortfolioApp/PersonalPortfolio/Components/SnippetDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbmlwcGV0RGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/got01/Desktop/PortfolioApp/PersonalPortfolio/Components/ThemeToggle.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUaGVtZVRvZ2dsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/got01/Desktop/PortfolioApp/PersonalPortfolio/Pages/Blog.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/got01/Desktop/PortfolioApp/PersonalPortfolio/Pages/CodeRepository.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29kZVJlcG9zaXRvcnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/got01/Desktop/PortfolioApp/PersonalPortfolio/Pages/Contact.razor]

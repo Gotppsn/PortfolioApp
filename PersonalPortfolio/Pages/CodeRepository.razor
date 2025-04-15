@@ -1,0 +1,115 @@
+// PersonalPortfolio/Pages/CodeRepository.razor
+@page "/code-repository"
+@page "/code-repository/{Id:int}"
+@inject ProjectService ProjectService
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Code Repository - Developer Portfolio</PageTitle>
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8">Code Repository</h1>
+
+    @if (Id.HasValue)
+    {
+        <SnippetDetail SnippetId="@Id.Value" OnBack="BackToList" />
+    }
+    else
+    {
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-8">
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flex-grow">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input type="text" @bind="searchTerm" @bind:event="oninput" @onkeyup="HandleSearch" placeholder="Search by title, description or code..."
+                               class="pl-10 w-full border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-white p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    </div>
+                </div>
+                <div>
+                    <select @bind="selectedLanguage" @bind:after="HandleSearch" class="w-full border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-white p-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">All Languages</option>
+                        @foreach (var language in ProjectService.GetAllLanguages())
+                        {
+                            <option value="@language">@language</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    <select @bind="selectedTag" @bind:after="HandleSearch" class="w-full border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-white p-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">All Tags</option>
+                        @foreach (var tag in ProjectService.GetAllTags())
+                        {
+                            <option value="@tag">@tag</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach (var snippet in filteredSnippets)
+            {
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">@snippet.Title</h3>
+                            <div class="text-xs text-gray-500">@snippet.Language</div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">@snippet.Description</p>
+                        <div class="flex flex-wrap mb-4">
+                            @foreach (var tag in snippet.Tags)
+                            {
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium mr-2 mb-2 px-2.5 py-0.5 rounded">
+                                    @tag
+                                </span>
+                            }
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="/code-repository/@snippet.Id" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">View Details</a>
+                            <span class="text-xs text-gray-500">@snippet.CreatedDate.ToString("MMM dd, yyyy")</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (!filteredSnippets.Any())
+        {
+            <div class="text-center p-10 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                <p class="text-gray-600 dark:text-gray-300">No code snippets found. Try adjusting your search criteria.</p>
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+
+    private List<CodeSnippet> allSnippets = new List<CodeSnippet>();
+    private List<CodeSnippet> filteredSnippets = new List<CodeSnippet>();
+    private string searchTerm = "";
+    private string selectedLanguage = "";
+    private string selectedTag = "";
+    private bool isLoading = true;
+
+    protected override void OnInitialized()
+    {
+        allSnippets = ProjectService.GetAllCodeSnippets();
+        filteredSnippets = allSnippets;
+        isLoading = false;
+    }
+
+    private void HandleSearch()
+    {
+        filteredSnippets = ProjectService.SearchCodeSnippets(searchTerm, selectedLanguage, selectedTag);
+    }
+
+    private void BackToList()
+    {
+        Id = null;
+    }
+}
