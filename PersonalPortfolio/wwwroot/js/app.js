@@ -1,3 +1,4 @@
+// PersonalPortfolio/wwwroot/js/app.js
 window.initializeTheme = function() {
     const theme = localStorage.getItem('theme');
     if (theme === 'dark') {

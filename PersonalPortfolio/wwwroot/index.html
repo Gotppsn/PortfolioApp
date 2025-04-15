@@ -7,19 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Developer Portfolio</title>
     <base href="/" />
-    <link rel="stylesheet" href="css/app.css" />
-    <link rel="preload" href="css/tailwind.css" as="style">
-    <link rel="preload" href="css/app.css" as="style">
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="css/tailwind.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="js/app.js"></script>
 </head>
 
 <body class="bg-gray-50">
-    <script>
-        window.initializeTheme();
-    </script>
     <div id="app">
         <div class="flex justify-center items-center min-h-screen">
             <div class="text-center">
@@ -38,6 +35,13 @@
         <span class="dismiss cursor-pointer float-right font-bold">🗙</span>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.initializeTheme) {
+                window.initializeTheme();
+            }
+        });
+    </script>
 </body>
 
 </html>
