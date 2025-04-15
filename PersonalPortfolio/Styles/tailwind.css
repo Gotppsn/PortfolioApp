@@ -3,10 +3,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add custom styles below */
+/* CSS Variables for dark mode support */
 @layer base {
+  :root {
+    --color-bg-primary: 255 255 255;
+    --color-bg-secondary: 249 250 251;
+    --color-text-primary: 31 41 55;
+    --color-text-secondary: 75 85 99;
+    --color-border: 229 231 235;
+    --color-accent: 37 99 235;
+    --color-accent-hover: 29 78 216;
+    --shadow-color: 0 0 0;
+  }
+  
+  .dark {
+    --color-bg-primary: 17 24 39;
+    --color-bg-secondary: 31 41 55;
+    --color-text-primary: 229 231 235;
+    --color-text-secondary: 156 163 175;
+    --color-border: 55 65 81;
+    --color-accent: 59 130 246;
+    --color-accent-hover: 96 165 250;
+    --shadow-color: 0 0 0;
+  }
+  
   body {
-    @apply bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200;
+    @apply bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800;
+    @apply text-gray-800 dark:text-gray-200;
+    @apply transition-colors duration-300;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -16,59 +40,62 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1;
+    @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500
+    text-white font-medium rounded-lg shadow-md hover:shadow-lg 
+    transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1;
+    @apply px-6 py-3 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 
+    text-gray-800 dark:text-gray-200 font-medium rounded-lg shadow-md hover:shadow-lg 
+    transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden
+    hover:shadow-xl transition-all duration-300;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg
+    bg-white dark:bg-gray-700 text-gray-800 dark:text-white
+    focus:ring-2 focus:ring-blue-500 focus:border-transparent
+    transition-all duration-300;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-blue {
+    @apply bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200;
+  }
+  
+  .badge-gray {
+    @apply bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200;
   }
   
   .nav-link.active div {
     @apply bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 font-medium;
   }
   
-  .project-card {
-    @apply opacity-0;
+  .section {
+    @apply py-16 border-t border-gray-200 dark:border-gray-700;
   }
   
-  .project-card.animate-in {
-    @apply animate-fadeIn;
-  }
-  
-  .tech-icon {
-    @apply opacity-0;
-  }
-  
-  .tech-icon.animate-in {
-    @apply animate-fadeIn;
-  }
-  
-  /* Custom animation classes */
+  /* Animation classes */
   .animate-in {
     animation: fadeIn 0.5s ease-in-out forwards;
   }
   
-  .animate-delay-100 {
-    animation-delay: 100ms;
-  }
-  
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-  
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
-  
-  .animate-delay-400 {
-    animation-delay: 400ms;
-  }
-  
-  .animate-delay-500 {
-    animation-delay: 500ms;
-  }
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
 }
 
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;

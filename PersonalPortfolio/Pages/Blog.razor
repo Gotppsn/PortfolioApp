@@ -1,75 +1,332 @@
 @page "/blog"
+@page "/blog/{Category}"
+@inject ProjectService ProjectService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Blog - Developer Portfolio</PageTitle>
 
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold mb-8">Blog</h1>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="/images/blog/blog-1.jpg" alt="Blog post" class="w-full h-64 object-cover" />
-            <div class="p-6">
-                <div class="text-sm text-gray-500 mb-2">April 10, 2025</div>
-                <h2 class="text-2xl font-bold mb-3">Getting Started with Blazor WebAssembly</h2>
-                <p class="text-gray-600 mb-4">
-                    Exploring the benefits and challenges of building client-side web applications using Blazor WebAssembly,
-                    Microsoft's framework for running .NET code directly in the browser.
-                </p>
-                <a href="/blog/getting-started-with-blazor-webassembly" class="text-blue-600 hover:underline">Read more →</a>
-            </div>
+    <div class="flex justify-between items-center mb-8">
+        <div>
+            <h1 class="text-4xl font-bold text-gray-800 dark:text-white">Blog</h1>
+            <p class="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl">
+                Thoughts, insights, and technical explorations on software development, cloud architecture, and modern web technologies.
+            </p>
         </div>
-        
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="/images/blog/blog-2.jpg" alt="Blog post" class="w-full h-64 object-cover" />
-            <div class="p-6">
-                <div class="text-sm text-gray-500 mb-2">March 28, 2025</div>
-                <h2 class="text-2xl font-bold mb-3">Optimizing Performance in .NET Applications</h2>
-                <p class="text-gray-600 mb-4">
-                    A deep dive into performance optimization techniques for .NET applications, including memory management,
-                    async/await best practices, and tools for profiling and benchmarking.
-                </p>
-                <a href="/blog/optimizing-performance-in-dotnet-applications" class="text-blue-600 hover:underline">Read more →</a>
-            </div>
-        </div>
-        
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="/images/blog/blog-3.jpg" alt="Blog post" class="w-full h-64 object-cover" />
-            <div class="p-6">
-                <div class="text-sm text-gray-500 mb-2">March 15, 2025</div>
-                <h2 class="text-2xl font-bold mb-3">Tailwind CSS: A Utility-First Approach</h2>
-                <p class="text-gray-600 mb-4">
-                    Exploring the benefits of Tailwind CSS's utility-first approach, and how it can streamline
-                    your frontend development workflow compared to traditional CSS frameworks.
-                </p>
-                <a href="/blog/tailwind-css-utility-first-approach" class="text-blue-600 hover:underline">Read more →</a>
-            </div>
-        </div>
-        
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="/images/blog/blog-4.jpg" alt="Blog post" class="w-full h-64 object-cover" />
-            <div class="p-6">
-                <div class="text-sm text-gray-500 mb-2">February 28, 2025</div>
-                <h2 class="text-2xl font-bold mb-3">Securing Your ASP.NET Core API</h2>
-                <p class="text-gray-600 mb-4">
-                    Best practices for implementing authentication and authorization in ASP.NET Core APIs,
-                    including JWT tokens, Identity, and protecting against common security vulnerabilities.
-                </p>
-                <a href="/blog/securing-aspnet-core-api" class="text-blue-600 hover:underline">Read more →</a>
+        <div class="hidden md:block">
+            <div class="relative">
+                <input type="text" @bind-value="searchTerm" @bind-value:event="oninput" @onkeyup="FilterPosts" 
+                       placeholder="Search articles..." 
+                       class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 
+                             text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
     
+    <!-- Mobile Search (visible on small screens) -->
+    <div class="mb-6 md:hidden">
+        <div class="relative">
+            <input type="text" @bind-value="searchTerm" @bind-value:event="oninput" @onkeyup="FilterPosts" 
+                   placeholder="Search articles..." 
+                   class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 
+                         text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Categories -->
+    <div class="mb-8 overflow-x-auto">
+        <div class="flex space-x-2 pb-2">
+            <a href="/blog" class="@(string.IsNullOrEmpty(Category) ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200") px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                All Posts
+            </a>
+            @foreach (var category in allCategories)
+            {
+                <a href="/blog/@category" class="@(Category == category ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200") px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                    @category
+                </a>
+            }
+        </div>
+    </div>
+    
+    <!-- Featured Post -->
+    @if (string.IsNullOrEmpty(searchTerm) && string.IsNullOrEmpty(Category) && featuredPost != null)
+    {
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden mb-12 animate-fadeIn">
+            <div class="md:flex">
+                <div class="md:w-1/2">
+                    <img src="@featuredPost.ImageUrl" alt="@featuredPost.Title" class="w-full h-64 md:h-full object-cover" />
+                </div>
+                <div class="md:w-1/2 p-8 flex flex-col">
+                    <div class="mb-2">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-200">Featured</span>
+                        <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">@featuredPost.PublishedDate.ToString("MMMM dd, yyyy")</span>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">@featuredPost.Title</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">@featuredPost.Excerpt</p>
+                    <div class="flex items-center mb-4">
+                        <img src="@featuredPost.AuthorImageUrl" alt="@featuredPost.AuthorName" class="w-10 h-10 rounded-full mr-3" />
+                        <div>
+                            <div class="text-gray-800 dark:text-white font-medium">@featuredPost.AuthorName</div>
+                            <div class="text-gray-500 dark:text-gray-400 text-sm">@featuredPost.ReadingTimeMinutes min read</div>
+                        </div>
+                    </div>
+                    <a href="/blog/@featuredPost.Slug" class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                        Read full article
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+    
+    <!-- Blog Posts Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @foreach (var post in filteredPosts)
+        {
+            <div class="animate-fadeIn" style="animation-delay: @($"{posts.IndexOf(post) * 100}ms")">
+                <BlogCard Post="@post" />
+            </div>
+        }
+    </div>
+    
+    @if (!filteredPosts.Any())
+    {
+        <div class="flex flex-col items-center justify-center py-16 px-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p class="text-gray-600 dark:text-gray-300 text-lg mb-4">No blog posts found matching your criteria.</p>
+            @if (!string.IsNullOrEmpty(searchTerm) || !string.IsNullOrEmpty(Category))
+            {
+                <button @onclick="ClearFilters" 
+                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors
+                              transform hover:-translate-y-1 duration-300 shadow-md hover:shadow-lg">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                        </svg>
+                        Clear Filters
+                    </div>
+                </button>
+            }
+        </div>
+    }
+    
     <!-- Pagination -->
-    <div class="flex justify-center mt-8 space-x-2">
-        <button class="px-4 py-2 rounded bg-gray-200 text-gray-700">Previous</button>
-        <button class="px-4 py-2 rounded bg-blue-600 text-white">1</button>
-        <button class="px-4 py-2 rounded bg-gray-200 text-gray-700">2</button>
-        <button class="px-4 py-2 rounded bg-gray-200 text-gray-700">3</button>
-        <button class="px-4 py-2 rounded bg-gray-200 text-gray-700">Next</button>
+    @if (filteredPosts.Any() && totalPages > 1)
+    {
+        <div class="flex justify-center mt-12 space-x-1">
+            <button @onclick="PreviousPage" disabled="@(currentPage == 1)" 
+                    class="@(currentPage == 1 ? "opacity-50 cursor-not-allowed" : "") px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                var pageNumber = i;
+                <button @onclick="() => GoToPage(pageNumber)" 
+                        class="@(currentPage == pageNumber ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200") px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors">
+                    @pageNumber
+                </button>
+            }
+            
+            <button @onclick="NextPage" disabled="@(currentPage == totalPages)" 
+                    class="@(currentPage == totalPages ? "opacity-50 cursor-not-allowed" : "") px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    }
+    
+    <!-- Newsletter Section -->
+    <div class="mt-16 bg-blue-600 dark:bg-blue-700 rounded-xl shadow-lg p-8 text-white">
+        <div class="md:flex items-center">
+            <div class="md:w-2/3 md:pr-8 mb-6 md:mb-0">
+                <h2 class="text-2xl font-bold mb-2">Subscribe to my newsletter</h2>
+                <p class="opacity-90">Get notified when I publish new articles and tutorials. No spam, unsubscribe anytime.</p>
+            </div>
+            <div class="md:w-1/3">
+                <div class="flex">
+                    <input type="email" placeholder="Your email" 
+                           class="flex-grow px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-white text-gray-800 border-0" />
+                    <button class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-r-lg transition-colors">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 @code {
-    // This would normally pull from a blog post service
-    // For now, using static content as a placeholder
+    [Parameter]
+    public string? Category { get; set; }
+    
+    private List<BlogPost> posts = new();
+    private List<BlogPost> filteredPosts = new();
+    private BlogPost? featuredPost;
+    private List<string> allCategories = new();
+    
+    private string searchTerm = "";
+    private int currentPage = 1;
+    private int postsPerPage = 9;
+    private int totalPages => (int)Math.Ceiling((double)filteredPosts.Count / postsPerPage);
+    
+    protected override void OnInitialized()
+    {
+        // This would be fetched from a service in a real application
+        posts = GetSampleBlogPosts();
+        allCategories = posts.SelectMany(p => p.Categories).Distinct().OrderBy(c => c).ToList();
+        featuredPost = posts.FirstOrDefault(p => p.IsFeatured);
+        
+        FilterPosts();
+    }
+    
+    protected override void OnParametersSet()
+    {
+        FilterPosts();
+    }
+    
+    private void FilterPosts()
+    {
+        // Start with all posts
+        var result = posts;
+        
+        // Filter by search term
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            result = result
+                .Where(p => p.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) || 
+                           p.Excerpt.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+        
+        // Filter by category
+        if (!string.IsNullOrEmpty(Category))
+        {
+            result = result
+                .Where(p => p.Categories.Contains(Category, StringComparer.OrdinalIgnoreCase))
+                .ToList();
+        }
+        
+        // If we're showing all posts and there's a featured post, don't include it twice
+        if (string.IsNullOrEmpty(searchTerm) && string.IsNullOrEmpty(Category) && featuredPost != null)
+        {
+            result = result.Where(p => p.Id != featuredPost.Id).ToList();
+        }
+        
+        filteredPosts = result;
+        
+        // Reset to first page when filters change
+        currentPage = 1;
+    }
+    
+    private void ClearFilters()
+    {
+        searchTerm = "";
+        if (!string.IsNullOrEmpty(Category))
+        {
+            NavigationManager.NavigateTo("/blog");
+        }
+        else
+        {
+            FilterPosts();
+        }
+    }
+    
+    private void PreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+        }
+    }
+    
+    private void NextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+        }
+    }
+    
+    private void GoToPage(int page)
+    {
+        currentPage = page;
+    }
+    
+    private List<BlogPost> GetSampleBlogPosts()
+    {
+        // This would be fetched from an API or database in a real application
+        return new List<BlogPost>
+        {
+            new BlogPost
+            {
+                Id = 1,
+                Title = "Getting Started with Blazor WebAssembly",
+                Excerpt = "Exploring the benefits and challenges of building client-side web applications using Blazor WebAssembly, Microsoft's framework for running .NET code directly in the browser.",
+                ImageUrl = "/images/blog/blog-1.jpg",
+                PublishedDate = new DateTime(2025, 4, 10),
+                Categories = new List<string> { "Blazor", "WebAssembly" },
+                Tags = new List<string> { "Blazor", "WebAssembly", ".NET", "Web Development" },
+                IsFeatured = true,
+                AuthorName = "John Doe",
+                AuthorImageUrl = "/images/profile.jpg"
+            },
+            new BlogPost
+            {
+                Id = 2,
+                Title = "Optimizing Performance in .NET Applications",
+                Excerpt = "A deep dive into performance optimization techniques for .NET applications, including memory management, async/await best practices, and tools for profiling and benchmarking.",
+                ImageUrl = "/images/blog/blog-2.jpg",
+                PublishedDate = new DateTime(2025, 3, 28),
+                Categories = new List<string> { ".NET", "Performance" },
+                Tags = new List<string> { ".NET", "Performance", "Optimization", "Memory Management" },
+                IsFeatured = false,
+                AuthorName = "John Doe",
+                AuthorImageUrl = "/images/profile.jpg"
+            },
+            new BlogPost
+            {
+                Id = 3,
+                Title = "Tailwind CSS: A Utility-First Approach",
+                Excerpt = "Exploring the benefits of Tailwind CSS's utility-first approach, and how it can streamline your frontend development workflow compared to traditional CSS frameworks.",
+                ImageUrl = "/images/blog/blog-3.jpg",
+                PublishedDate = new DateTime(2025, 3, 15),
+                Categories = new List<string> { "CSS", "Frontend" },
+                Tags = new List<string> { "CSS", "Tailwind", "Frontend", "Web Development" },
+                IsFeatured = false,
+                AuthorName = "John Doe",
+                AuthorImageUrl = "/images/profile.jpg"
+            },
+            new BlogPost
+            {
+                Id = 4,
+                Title = "Securing Your ASP.NET Core API",
+                Excerpt = "Best practices for implementing authentication and authorization in ASP.NET Core APIs, including JWT tokens, Identity, and protecting against common security vulnerabilities.",
+                ImageUrl = "/images/blog/blog-4.jpg",
+                PublishedDate = new DateTime(2025, 2, 28),
+                Categories = new List<string> { ".NET", "Security" },
+                Tags = new List<string> { ".NET", "Security", "API", "Authentication" },
+                IsFeatured = false,
+                AuthorName = "John Doe",
+                AuthorImageUrl = "/images/profile.jpg"
+            }
+        };
+    }
 }

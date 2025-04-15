@@ -8,16 +8,16 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
         },
         secondary: {
           50: '#f8fafc',
@@ -33,29 +33,67 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter var', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Inter var', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.secondary.800'),
+            color: theme('colors.gray.800'),
             a: {
-              color: theme('colors.primary.600'),
+              color: theme('colors.blue.600'),
               '&:hover': {
-                color: theme('colors.primary.700'),
+                color: theme('colors.blue.700'),
               },
+            },
+            h1: {
+              color: theme('colors.gray.900'),
+            },
+            h2: {
+              color: theme('colors.gray.900'),
+            },
+            h3: {
+              color: theme('colors.gray.900'),
+            },
+            h4: {
+              color: theme('colors.gray.900'),
+            },
+            code: {
+              color: theme('colors.pink.600'),
+              backgroundColor: theme('colors.gray.100'),
+              padding: '0.2em 0.4em',
+              borderRadius: '0.25rem',
+            },
+            'pre code': {
+              backgroundColor: 'transparent',
+              padding: 0,
             },
           },
         },
         dark: {
           css: {
-            color: theme('colors.secondary.200'),
+            color: theme('colors.gray.300'),
             a: {
-              color: theme('colors.primary.400'),
+              color: theme('colors.blue.400'),
               '&:hover': {
-                color: theme('colors.primary.300'),
+                color: theme('colors.blue.300'),
               },
+            },
+            h1: {
+              color: theme('colors.gray.100'),
+            },
+            h2: {
+              color: theme('colors.gray.100'),
+            },
+            h3: {
+              color: theme('colors.gray.100'),
+            },
+            h4: {
+              color: theme('colors.gray.100'),
+            },
+            code: {
+              color: theme('colors.pink.400'),
+              backgroundColor: theme('colors.gray.800'),
             },
           },
         },
@@ -68,41 +106,43 @@ module.exports = {
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'bounce': 'bounce 1s infinite',
         'spin': 'spin 1s linear infinite',
+        'ping': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         slideInLeft: {
-          '0%': { transform: 'translateX(-100px)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' },
+          '0%': { opacity: '0', transform: 'translateX(-100px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         slideInRight: {
-          '0%': { transform: 'translateX(100px)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' },
+          '0%': { opacity: '0', transform: 'translateX(100px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         slideInUp: {
-          '0%': { transform: 'translateY(100px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+          '0%': { opacity: '0', transform: 'translateY(100px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        pulse: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.5' },
-        },
-        bounce: {
-          '0%, 100%': {
-            transform: 'translateY(-25%)',
-            animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
-          },
-          '50%': {
-            transform: 'none',
-            animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+        ping: {
+          '75%, 100%': {
+            transform: 'scale(2)',
+            opacity: '0',
           },
         },
-        spin: {
-          'to': { transform: 'rotate(360deg)' },
-        },
+      },
+      transitionDuration: {
+        '400': '400ms',
+      },
+      zIndex: {
+        '-10': '-10',
+      },
+      boxShadow: {
+        'skill': '0 0 15px rgba(59, 130, 246, 0.5)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },
@@ -111,10 +151,22 @@ module.exports = {
       backgroundColor: ['dark', 'dark-hover', 'dark-group-hover'],
       borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
       textColor: ['dark', 'dark-hover', 'dark-active'],
+      typography: ['dark'],
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
+    function({ addComponents, theme }) {
+      addComponents({
+        '.card-hover-effect': {
+          transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+          '&:hover': {
+            transform: 'translateY(-5px)',
+            boxShadow: theme('boxShadow.xl'),
+          },
+        },
+      })
+    },
   ],
 }

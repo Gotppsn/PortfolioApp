@@ -1,32 +1,201 @@
 @page "/skills"
 @inject ProjectService ProjectService
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Skills - Developer Portfolio</PageTitle>
 
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold mb-8">Technical Skills</h1>
+    <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Technical Skills</h1>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-3xl">
+        My technical expertise spans across multiple domains, with a focus on building scalable and maintainable 
+        applications using modern technologies and best practices.
+    </p>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @foreach (var category in ProjectService.GetSkillCategories())
-        {
-            <SkillBadge Category="@category" />
-        }
+    <!-- Skills Overview -->
+    <div class="relative z-10 mb-16">
+        <!-- Skill Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach (var category in ProjectService.GetSkillCategories())
+            {
+                <div class="animate-on-scroll" style="animation-delay: @($"{Array.IndexOf(ProjectService.GetSkillCategories().ToArray(), category) * 100}ms")">
+                    <SkillCard Category="@category" />
+                </div>
+            }
+        </div>
     </div>
     
-    <div class="mt-12">
-        <h2 class="text-2xl font-bold mb-6">Skills Overview</h2>
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <p class="mb-4">
-                My technical expertise spans across multiple domains, with a focus on building scalable and maintainable 
-                applications using modern technologies and best practices.
-            </p>
+    <!-- Skills Progress Timeline -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-16">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Skills Progress Timeline</h2>
+        
+        <div class="relative">
+            <!-- Timeline line -->
+            <div class="absolute left-0 md:left-1/2 top-0 h-full w-0.5 bg-gray-200 dark:bg-gray-700 transform md:translate-x-px"></div>
             
-            <ul class="list-disc list-inside space-y-2">
-                <li><strong>Frontend:</strong> Proficient in creating responsive, accessible interfaces using modern JavaScript frameworks.</li>
-                <li><strong>Backend:</strong> Experienced in developing robust server-side applications with .NET Core and C#.</li>
-                <li><strong>Database:</strong> Skilled in data modeling, query optimization, and working with relational databases.</li>
-                <li><strong>DevOps:</strong> Knowledgeable in CI/CD pipelines, containerization, and cloud deployment.</li>
-            </ul>
+            <!-- Timeline items -->
+            <div class="space-y-12 relative">
+                <!-- 2025 -->
+                <div class="flex flex-col md:flex-row items-start group">
+                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-6 md:pb-0">
+                        <div class="md:text-right">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2025</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mt-1">Cloud Architecture & DevOps</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-0 md:left-1/2 transform -translate-x-px md:translate-x-px">
+                        <div class="w-4 h-4 bg-blue-600 dark:bg-blue-500 rounded-full border-4 border-white dark:border-gray-800 group-hover:scale-125 transition-transform"></div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-8">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-600 dark:border-blue-500">
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Expanded expertise in cloud architecture, focusing on multi-region deployments, serverless computing, 
+                                and implementing advanced CI/CD pipelines for enterprise applications.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                Azure DevOps
+                            </span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                Kubernetes
+                            </span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                Terraform
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 2023 -->
+                <div class="flex flex-col md:flex-row items-start group">
+                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-6 md:pb-0">
+                        <div class="md:text-right">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2023</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mt-1">Full-Stack Development</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-0 md:left-1/2 transform -translate-x-px md:translate-x-px">
+                        <div class="w-4 h-4 bg-blue-600 dark:bg-blue-500 rounded-full border-4 border-white dark:border-gray-800 group-hover:scale-125 transition-transform"></div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-8">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-600 dark:border-blue-500">
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Mastered modern web development stacks, with a focus on .NET Core, Blazor, and cloud-based architectures.
+                                Implemented complex applications with responsive designs and optimal performance.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                Blazor
+                            </span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                .NET Core
+                            </span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                Azure
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 2021 -->
+                <div class="flex flex-col md:flex-row items-start group">
+                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-6 md:pb-0">
+                        <div class="md:text-right">
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2021</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mt-1">Backend Development</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-0 md:left-1/2 transform -translate-x-px md:translate-x-px">
+                        <div class="w-4 h-4 bg-blue-600 dark:bg-blue-500 rounded-full border-4 border-white dark:border-gray-800 group-hover:scale-125 transition-transform"></div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-8">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-600 dark:border-blue-500">
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Developed robust backend systems using C# and SQL Server. Implemented RESTful APIs,
+                                authentication systems, and optimized database queries for high-traffic applications.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                C#
+                            </span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                SQL Server
+                            </span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                                Entity Framework
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Certifications -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-16">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Certifications</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex items-start hover:shadow-md transition-shadow duration-300">
+                <div class="flex-shrink-0 mr-4">
+                    <img src="/images/certifications/azure.png" alt="Microsoft Azure" class="w-16 h-16 object-contain" />
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-800 dark:text-white">Microsoft Certified: Azure Developer Associate</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Microsoft</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Issued Jan 2024 · Expires Jan 2026</p>
+                </div>
+            </div>
+            
+            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex items-start hover:shadow-md transition-shadow duration-300">
+                <div class="flex-shrink-0 mr-4">
+                    <img src="/images/certifications/dotnet.png" alt=".NET" class="w-16 h-16 object-contain" />
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-800 dark:text-white">Microsoft Certified: .NET Application Developer</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Microsoft</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Issued Mar 2023 · Expires Mar 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Learning Resources -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Learning Resources</h2>
+        
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Here are some of the resources I've found invaluable for continuous learning and staying updated with the latest technologies:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="https://docs.microsoft.com/en-us/dotnet/" target="_blank" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                <h3 class="font-bold text-blue-600 dark:text-blue-400">.NET Documentation</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Comprehensive documentation for .NET development</p>
+            </a>
+            
+            <a href="https://docs.microsoft.com/en-us/azure/" target="_blank" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                <h3 class="font-bold text-blue-600 dark:text-blue-400">Azure Documentation</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Documentation for Azure cloud services</p>
+            </a>
+            
+            <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" target="_blank" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
+                <h3 class="font-bold text-blue-600 dark:text-blue-400">Blazor Documentation</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Learn about building web apps with Blazor</p>
+            </a>
         </div>
     </div>
 </div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.Delay(100); // Small delay to ensure DOM is ready
+            await JSRuntime.InvokeVoidAsync("initializeAnimation");
+        }
+    }
+}
