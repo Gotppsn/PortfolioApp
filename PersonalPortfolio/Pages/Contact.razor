@@ -1,4 +1,3 @@
-// PersonalPortfolio/Pages/Contact.razor
 @page "/contact"
 @inject IJSRuntime JSRuntime
 
@@ -96,7 +95,7 @@
         await JSRuntime.InvokeVoidAsync("window.scrollTo", 0, 0);
     }
     
-    private class ContactForm
+    public class ContactForm
     {
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; } = string.Empty;
