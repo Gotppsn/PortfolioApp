@@ -1,0 +1,25 @@
+// PersonalPortfolio/Components/SkillBadge.razor
+@inject ProjectService ProjectService
+
+<div class="bg-white p-6 shadow-lg rounded-lg">
+    <h3 class="text-xl font-semibold mb-3">@Category</h3>
+    <div class="space-y-4">
+        @foreach (var skill in ProjectService.GetSkillsByCategory(Category))
+        {
+            <div>
+                <div class="flex justify-between mb-1">
+                    <span class="font-medium">@skill.Name</span>
+                    <span class="text-sm text-gray-500">@skill.ProficiencyLevel/5</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: @(skill.ProficiencyLevel * 20)%"></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Category { get; set; } = string.Empty;
+}

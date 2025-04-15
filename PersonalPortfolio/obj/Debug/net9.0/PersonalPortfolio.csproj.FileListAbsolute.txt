@@ -1,0 +1,7 @@
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.csproj.AssemblyReference.cache
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.AssemblyInfoInputs.cache
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.AssemblyInfo.cs
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.csproj.CoreCompileInputs.cache
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\PersonalPortfolio.sourcelink.json

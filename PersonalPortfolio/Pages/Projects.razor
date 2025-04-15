@@ -1,0 +1,96 @@
+// PersonalPortfolio/Pages/Projects.razor
+@page "/projects"
+@page "/projects/{Id:int}"
+@inject ProjectService ProjectService
+
+<PageTitle>Projects - Developer Portfolio</PageTitle>
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8">My Projects</h1>
+
+    @if (Id.HasValue)
+    {
+        var project = ProjectService.GetProjectById(Id.Value);
+        
+        <div class="mb-6">
+            <a href="/projects" class="text-blue-600 hover:underline">&larr; Back to all projects</a>
+        </div>
+        
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="@project.ImageUrl" alt="@project.Title" class="w-full h-64 object-cover" />
+            <div class="p-8">
+                <h2 class="text-3xl font-bold mb-4">@project.Title</h2>
+                <p class="text-gray-700 mb-6">@project.Description</p>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Technologies Used</h3>
+                    <div class="flex flex-wrap">
+                        @foreach (var tech in project.Technologies)
+                        {
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 mb-2 px-2.5 py-0.5 rounded">
+                                @tech
+                            </span>
+                        }
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Project Links</h3>
+                    <div class="flex space-x-4">
+                        <a href="@project.GitHubUrl" target="_blank" 
+                           class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                            GitHub Repository
+                        </a>
+                        <a href="@project.LiveDemoUrl" target="_blank"
+                           class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Completion Date</h3>
+                    <p class="text-gray-700">@project.DateCompleted.ToString("MMMM yyyy")</p>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach (var project in ProjectService.GetAllProjects())
+            {
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <img src="@project.ImageUrl" alt="@project.Title" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">@project.Title</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">@project.Description</p>
+                        <div class="flex flex-wrap mb-4">
+                            @foreach (var tech in project.Technologies.Take(3))
+                            {
+                                <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded">
+                                    @tech
+                                </span>
+                            }
+                            @if (project.Technologies.Count > 3)
+                            {
+                                <span class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded">
+                                    +@(project.Technologies.Count - 3) more
+                                </span>
+                            }
+                        </div>
+                        <a href="/projects/@project.Id" 
+                           class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+}
