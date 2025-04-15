@@ -14,33 +14,3 @@ namespace PersonalPortfolio.Models
         public bool Featured { get; set; }
     }
 }
-
-// PersonalPortfolio/Models/Experience.cs
-namespace PersonalPortfolio.Models
-{
-    public class Experience
-    {
-        public int Id { get; set; }
-        public string Company { get; set; } = string.Empty;
-        public string Position { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public DateTime StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
-        public bool Current => EndDate == null;
-        public string Location { get; set; } = string.Empty;
-        public List<string> Achievements { get; set; } = new List<string>();
-    }
-}
-
-// PersonalPortfolio/Models/Skill.cs
-namespace PersonalPortfolio.Models
-{
-    public class Skill
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public int ProficiencyLevel { get; set; } // 1-5 scale
-        public string Category { get; set; } = string.Empty; // Frontend, Backend, Database, etc.
-        public string IconUrl { get; set; } = string.Empty;
-    }
-}
