@@ -1,11 +1,10 @@
-<!-- PersonalPortfolio/wwwroot/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Developer Portfolio</title>
+    <title>John Doe | Full-Stack Developer</title>
     <base href="/" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="css/tailwind.css" rel="stylesheet" />
@@ -13,35 +12,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="js/app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="John Doe - Full-Stack Developer specializing in C#, ASP.NET Core, and cloud technologies. View my portfolio, projects, and experience.">
+    <meta name="theme-color" content="#0284c7" />
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
     <div id="app">
         <div class="flex justify-center items-center min-h-screen">
             <div class="text-center">
-                <svg class="w-16 h-16 mx-auto mb-4 text-blue-600 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <p class="text-lg font-medium text-gray-600">Loading...</p>
+                <!-- Loading spinner with gradient -->
+                <div class="relative h-16 w-16 mx-auto mb-4">
+                    <div class="absolute inset-0 rounded-full border-4 border-t-blue-600 border-r-purple-600 border-b-blue-600 border-l-purple-600 opacity-25"></div>
+                    <div class="absolute inset-0 rounded-full border-4 border-t-blue-600 border-r-transparent border-b-transparent border-l-transparent animate-spin"></div>
+                </div>
+                <p class="text-lg font-medium text-gray-600 dark:text-gray-300">Loading...</p>
             </div>
         </div>
     </div>
 
-    <div id="blazor-error-ui" class="hidden fixed bottom-0 w-full z-50 bg-red-100 p-4 text-red-700">
-        An unhandled error has occurred.
-        <a href="" class="text-red-800 font-semibold underline">Reload</a>
-        <span class="dismiss cursor-pointer float-right font-bold">🗙</span>
+    <div id="blazor-error-ui" class="fixed inset-x-0 bottom-0 bg-red-100 dark:bg-red-900 p-4 text-red-700 dark:text-red-300 z-50 hidden">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                An unhandled error has occurred.
+                <a href="" class="text-red-800 dark:text-red-200 font-semibold underline ml-2">Reload</a>
+            </div>
+            <span class="dismiss cursor-pointer font-bold">&times;</span>
+        </div>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.initializeTheme) {
-                window.initializeTheme();
-            }
-        });
-    </script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

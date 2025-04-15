@@ -60,6 +60,57 @@ module.exports = {
           },
         },
       }),
+      animation: {
+        'fadeIn': 'fadeIn 0.5s ease-in-out forwards',
+        'slideInLeft': 'slideInLeft 0.8s ease-out forwards',
+        'slideInRight': 'slideInRight 0.8s ease-out forwards',
+        'slideInUp': 'slideInUp 0.6s ease-out forwards',
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'bounce': 'bounce 1s infinite',
+        'spin': 'spin 1s linear infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideInLeft: {
+          '0%': { transform: 'translateX(-100px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideInRight: {
+          '0%': { transform: 'translateX(100px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideInUp: {
+          '0%': { transform: 'translateY(100px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        pulse: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
+        bounce: {
+          '0%, 100%': {
+            transform: 'translateY(-25%)',
+            animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+          },
+          '50%': {
+            transform: 'none',
+            animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+          },
+        },
+        spin: {
+          'to': { transform: 'rotate(360deg)' },
+        },
+      },
+    },
+  },
+  variants: {
+    extend: {
+      backgroundColor: ['dark', 'dark-hover', 'dark-group-hover'],
+      borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
+      textColor: ['dark', 'dark-hover', 'dark-active'],
     },
   },
   plugins: [
