@@ -1,12 +1,20 @@
 ﻿@inherits LayoutComponentBase
+
 <div class="page">
     <div class="sidebar">
         <NavMenu />
     </div>
 
     <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        <div class="top-row px-4 flex items-center justify-between">
+            <div>
+                <ThemeToggle />
+            </div>
+            <div>
+                <a href="https://github.com/yourusername" target="_blank" class="ml-4">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="ml-4">LinkedIn</a>
+                <a href="/contact" class="ml-4">Contact</a>
+            </div>
         </div>
 
         <article class="content px-4">

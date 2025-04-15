@@ -1,0 +1,75 @@
+@page "/blog"
+
+<PageTitle>Blog - Developer Portfolio</PageTitle>
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8">Blog</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="/images/blog/blog-1.jpg" alt="Blog post" class="w-full h-64 object-cover" />
+            <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">April 10, 2025</div>
+                <h2 class="text-2xl font-bold mb-3">Getting Started with Blazor WebAssembly</h2>
+                <p class="text-gray-600 mb-4">
+                    Exploring the benefits and challenges of building client-side web applications using Blazor WebAssembly,
+                    Microsoft's framework for running .NET code directly in the browser.
+                </p>
+                <a href="/blog/getting-started-with-blazor-webassembly" class="text-blue-600 hover:underline">Read more →</a>
+            </div>
+        </div>
+        
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="/images/blog/blog-2.jpg" alt="Blog post" class="w-full h-64 object-cover" />
+            <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">March 28, 2025</div>
+                <h2 class="text-2xl font-bold mb-3">Optimizing Performance in .NET Applications</h2>
+                <p class="text-gray-600 mb-4">
+                    A deep dive into performance optimization techniques for .NET applications, including memory management,
+                    async/await best practices, and tools for profiling and benchmarking.
+                </p>
+                <a href="/blog/optimizing-performance-in-dotnet-applications" class="text-blue-600 hover:underline">Read more →</a>
+            </div>
+        </div>
+        
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="/images/blog/blog-3.jpg" alt="Blog post" class="w-full h-64 object-cover" />
+            <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">March 15, 2025</div>
+                <h2 class="text-2xl font-bold mb-3">Tailwind CSS: A Utility-First Approach</h2>
+                <p class="text-gray-600 mb-4">
+                    Exploring the benefits of Tailwind CSS's utility-first approach, and how it can streamline
+                    your frontend development workflow compared to traditional CSS frameworks.
+                </p>
+                <a href="/blog/tailwind-css-utility-first-approach" class="text-blue-600 hover:underline">Read more →</a>
+            </div>
+        </div>
+        
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="/images/blog/blog-4.jpg" alt="Blog post" class="w-full h-64 object-cover" />
+            <div class="p-6">
+                <div class="text-sm text-gray-500 mb-2">February 28, 2025</div>
+                <h2 class="text-2xl font-bold mb-3">Securing Your ASP.NET Core API</h2>
+                <p class="text-gray-600 mb-4">
+                    Best practices for implementing authentication and authorization in ASP.NET Core APIs,
+                    including JWT tokens, Identity, and protecting against common security vulnerabilities.
+                </p>
+                <a href="/blog/securing-aspnet-core-api" class="text-blue-600 hover:underline">Read more →</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="flex justify-center mt-8 space-x-2">
+        <button class="px-4 py-2 rounded bg-gray-200 text-gray-700">Previous</button>
+        <button class="px-4 py-2 rounded bg-blue-600 text-white">1</button>
+        <button class="px-4 py-2 rounded bg-gray-200 text-gray-700">2</button>
+        <button class="px-4 py-2 rounded bg-gray-200 text-gray-700">3</button>
+        <button class="px-4 py-2 rounded bg-gray-200 text-gray-700">Next</button>
+    </div>
+</div>
+
+@code {
+    // This would normally pull from a blog post service
+    // For now, using static content as a placeholder
+}

@@ -1,0 +1,41 @@
+@inject ProjectService ProjectService
+
+<div class="relative border-l-4 border-blue-600 pl-6 ml-4 mb-8">
+    @foreach (var experience in ProjectService.GetAllExperiences())
+    {
+        <div class="mb-10 relative">
+            <div class="absolute -left-10 mt-1.5 h-6 w-6 rounded-full bg-blue-600 flex items-center justify-center">
+                <div class="h-3 w-3 rounded-full bg-white"></div>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold">@experience.Position</h3>
+                <div class="text-lg text-gray-600">@experience.Company | @experience.Location</div>
+                <div class="text-sm text-gray-500 mb-2">
+                    @experience.StartDate.ToString("MMM yyyy") - @(experience.Current ? "Present" : experience.EndDate?.ToString("MMM yyyy"))
+                </div>
+                <p class="mb-3">@experience.Description</p>
+                <ul class="list-disc list-inside text-sm text-gray-700">
+                    @foreach (var achievement in experience.Achievements.Take(2))
+                    {
+                        <li>@achievement</li>
+                    }
+                    @if (experience.Achievements.Count > 2)
+                    {
+                        <li class="text-blue-600 cursor-pointer" @onclick="() => ShowAllAchievements(experience.Id)">
+                            See more...
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private int? expandedExperienceId;
+
+    private void ShowAllAchievements(int experienceId)
+    {
+        expandedExperienceId = expandedExperienceId == experienceId ? null : experienceId;
+    }
+}

@@ -1,0 +1,32 @@
+@page "/skills"
+@inject ProjectService ProjectService
+
+<PageTitle>Skills - Developer Portfolio</PageTitle>
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8">Technical Skills</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @foreach (var category in ProjectService.GetSkillCategories())
+        {
+            <SkillBadge Category="@category" />
+        }
+    </div>
+    
+    <div class="mt-12">
+        <h2 class="text-2xl font-bold mb-6">Skills Overview</h2>
+        <div class="bg-white shadow-lg rounded-lg p-6">
+            <p class="mb-4">
+                My technical expertise spans across multiple domains, with a focus on building scalable and maintainable 
+                applications using modern technologies and best practices.
+            </p>
+            
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>Frontend:</strong> Proficient in creating responsive, accessible interfaces using modern JavaScript frameworks.</li>
+                <li><strong>Backend:</strong> Experienced in developing robust server-side applications with .NET Core and C#.</li>
+                <li><strong>Database:</strong> Skilled in data modeling, query optimization, and working with relational databases.</li>
+                <li><strong>DevOps:</strong> Knowledgeable in CI/CD pipelines, containerization, and cloud deployment.</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+@page "/experience"
+@inject ProjectService ProjectService
+
+<PageTitle>Experience - Developer Portfolio</PageTitle>
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8">Professional Experience</h1>
+    
+    <div class="space-y-12">
+        @foreach (var experience in ProjectService.GetAllExperiences())
+        {
+            <div class="bg-white shadow-lg rounded-lg p-6">
+                <div class="flex flex-col md:flex-row justify-between mb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold">@experience.Position</h2>
+                        <h3 class="text-xl text-gray-600">@experience.Company</h3>
+                    </div>
+                    <div class="text-gray-500 mt-2 md:mt-0">
+                        <span>@experience.StartDate.ToString("MMM yyyy") - @(experience.Current ? "Present" : experience.EndDate?.ToString("MMM yyyy"))</span>
+                        <div>@experience.Location</div>
+                    </div>
+                </div>
+                
+                <p class="mb-6">@experience.Description</p>
+                
+                <h4 class="font-bold text-lg mb-2">Key Achievements</h4>
+                <ul class="list-disc list-inside space-y-1">
+                    @foreach (var achievement in experience.Achievements)
+                    {
+                        <li>@achievement</li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</div>
