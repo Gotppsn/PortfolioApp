@@ -2,44 +2,348 @@
 @inject ProjectService ProjectService
 @inject IJSRuntime JSRuntime
 
-<PageTitle>Skills - Developer Portfolio</PageTitle>
+<PageTitle>Skills - Panupol Sonnuam Portfolio</PageTitle>
 
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Technical Skills</h1>
     <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-3xl">
-        My technical expertise spans across multiple domains, with a focus on building scalable and maintainable 
-        applications using modern technologies and best practices.
+        My technical expertise spans multiple domains, with a focus on automation systems, web development, 
+        and AI implementation using modern technologies and best practices.
     </p>
     
     <!-- Skills Overview -->
     <div class="relative z-10 mb-16">
-        <!-- Skill Cards -->
+        <!-- Skill Categories -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach (var category in ProjectService.GetSkillCategories())
-            {
-                <div class="animate-on-scroll" style="animation-delay: @($"{Array.IndexOf(ProjectService.GetSkillCategories().ToArray(), category) * 100}ms")">
-                    <SkillCard Category="@category" />
+            <!-- Programming Languages -->
+            <div class="bg-white dark:bg-gray-800 p-6 shadow-lg rounded-lg animate-on-scroll">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Programming Languages</h3>
                 </div>
-            }
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Python</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Advanced</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">JavaScript</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Advanced</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">C++</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Dart</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">PHP</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Beginner</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">C#</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Beginner</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full" style="width: 35%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Frameworks -->
+            <div class="bg-white dark:bg-gray-800 p-6 shadow-lg rounded-lg animate-on-scroll" style="animation-delay: 100ms">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Frameworks & Libraries</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Bootstrap</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-purple-600 dark:bg-purple-500 h-2.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Angular</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-purple-600 dark:bg-purple-500 h-2.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Laravel</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-purple-600 dark:bg-purple-500 h-2.5 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Flutter</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-purple-600 dark:bg-purple-500 h-2.5 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Node.js</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-purple-600 dark:bg-purple-500 h-2.5 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technologies -->
+            <div class="bg-white dark:bg-gray-800 p-6 shadow-lg rounded-lg animate-on-scroll" style="animation-delay: 200ms">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Technologies</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">HTML/CSS</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-green-600 dark:bg-green-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">WordPress</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-green-600 dark:bg-green-500 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">SQL/MongoDB</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-green-600 dark:bg-green-500 h-2.5 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Firebase</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-green-600 dark:bg-green-500 h-2.5 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Git/Version Control</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-green-600 dark:bg-green-500 h-2.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Specialized Skills -->
+            <div class="bg-white dark:bg-gray-800 p-6 shadow-lg rounded-lg animate-on-scroll" style="animation-delay: 300ms">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600 dark:text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Automation Systems</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">n8n Platform</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Expert</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-yellow-600 dark:bg-yellow-500 h-2.5 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Workflow Design</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-yellow-600 dark:bg-yellow-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">API Integration</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-yellow-600 dark:bg-yellow-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Implementation -->
+            <div class="bg-white dark:bg-gray-800 p-6 shadow-lg rounded-lg animate-on-scroll" style="animation-delay: 400ms">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white">AI Implementation</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">LLM Integration</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-red-600 dark:bg-red-500 h-2.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">ChatBot Development</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-red-600 dark:bg-red-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Stable Diffusion</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Intermediate</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-red-600 dark:bg-red-500 h-2.5 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education Technology -->
+            <div class="bg-white dark:bg-gray-800 p-6 shadow-lg rounded-lg animate-on-scroll" style="animation-delay: 500ms">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Education Technology</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Metaverse Development</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-indigo-600 dark:bg-indigo-500 h-2.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Coding Education</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Expert</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-indigo-600 dark:bg-indigo-500 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700 dark:text-gray-300">Educational Content</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-indigo-600 dark:bg-indigo-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
     <!-- Skills Progress Timeline -->
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-16">
-        <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Skills Progress Timeline</h2>
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-16">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Skills Development Timeline</h2>
         
         <div class="relative">
             <!-- Timeline line -->
             <div class="absolute left-0 md:left-1/2 top-0 h-full w-0.5 bg-gray-200 dark:bg-gray-700 transform md:translate-x-px"></div>
             
             <!-- Timeline items -->
-            <div class="space-y-12 relative">
-                <!-- 2025 -->
-                <div class="flex flex-col md:flex-row items-start group">
-                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-6 md:pb-0">
+            <div class="space-y-16 relative">
+                <!-- 2024 -->
+                <div class="flex flex-col md:flex-row items-start group animate-on-scroll">
+                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-8 md:pb-0">
                         <div class="md:text-right">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2025</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mt-1">Cloud Architecture & DevOps</p>
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2024</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mt-1">AI Implementation Expert</p>
                         </div>
                     </div>
                     <div class="absolute left-0 md:left-1/2 transform -translate-x-px md:translate-x-px">
@@ -48,83 +352,80 @@
                     <div class="md:w-1/2 md:pl-8">
                         <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-600 dark:border-blue-500">
                             <p class="text-gray-600 dark:text-gray-300">
-                                Expanded expertise in cloud architecture, focusing on multi-region deployments, serverless computing, 
-                                and implementing advanced CI/CD pipelines for enterprise applications.
+                                Expanded expertise in AI tools and integration, focusing on LLM chatbots, Stable Diffusion, and automated content generation. Implemented these technologies in educational contexts for enhanced learning experiences.
                             </p>
                         </div>
                         <div class="flex flex-wrap gap-2 mt-2">
                             <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                Azure DevOps
+                                LLM Integration
                             </span>
                             <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                Kubernetes
+                                Stable Diffusion
                             </span>
                             <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                Terraform
+                                Flowise
                             </span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 2023 -->
-                <div class="flex flex-col md:flex-row items-start group">
-                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-6 md:pb-0">
+                <!-- 2022-2023 -->
+                <div class="flex flex-col md:flex-row items-start group animate-on-scroll" style="animation-delay: 200ms">
+                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-8 md:pb-0">
                         <div class="md:text-right">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2023</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mt-1">Full-Stack Development</p>
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2022-2023</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mt-1">Automation & Mobile Development</p>
                         </div>
                     </div>
                     <div class="absolute left-0 md:left-1/2 transform -translate-x-px md:translate-x-px">
-                        <div class="w-4 h-4 bg-blue-600 dark:bg-blue-500 rounded-full border-4 border-white dark:border-gray-800 group-hover:scale-125 transition-transform"></div>
+                        <div class="w-4 h-4 bg-purple-600 dark:bg-purple-500 rounded-full border-4 border-white dark:border-gray-800 group-hover:scale-125 transition-transform"></div>
                     </div>
                     <div class="md:w-1/2 md:pl-8">
-                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-600 dark:border-blue-500">
+                        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border-l-4 border-purple-600 dark:border-purple-500">
                             <p class="text-gray-600 dark:text-gray-300">
-                                Mastered modern web development stacks, with a focus on .NET Core, Blazor, and cloud-based architectures.
-                                Implemented complex applications with responsive designs and optimal performance.
+                                Developed advanced automation systems using n8n platform, creating complex workflows for business processes. Expanded into mobile development with Flutter and implemented educational content in Metaverse environments.
                             </p>
                         </div>
                         <div class="flex flex-wrap gap-2 mt-2">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                Blazor
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">
+                                n8n Automation
                             </span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                .NET Core
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">
+                                Flutter
                             </span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                Azure
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">
+                                Metaverse
                             </span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 2021 -->
-                <div class="flex flex-col md:flex-row items-start group">
-                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-6 md:pb-0">
+                <!-- 2020-2021 -->
+                <div class="flex flex-col md:flex-row items-start group animate-on-scroll" style="animation-delay: 400ms">
+                    <div class="flex items-center md:w-1/2 md:justify-end md:pr-8 pb-8 md:pb-0">
                         <div class="md:text-right">
-                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2021</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mt-1">Backend Development</p>
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">2020-2021</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mt-1">Web Development Focus</p>
                         </div>
                     </div>
                     <div class="absolute left-0 md:left-1/2 transform -translate-x-px md:translate-x-px">
-                        <div class="w-4 h-4 bg-blue-600 dark:bg-blue-500 rounded-full border-4 border-white dark:border-gray-800 group-hover:scale-125 transition-transform"></div>
+                        <div class="w-4 h-4 bg-green-600 dark:bg-green-500 rounded-full border-4 border-white dark:border-gray-800 group-hover:scale-125 transition-transform"></div>
                     </div>
                     <div class="md:w-1/2 md:pl-8">
-                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-600 dark:border-blue-500">
+                        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-l-4 border-green-600 dark:border-green-500">
                             <p class="text-gray-600 dark:text-gray-300">
-                                Developed robust backend systems using C# and SQL Server. Implemented RESTful APIs,
-                                authentication systems, and optimized database queries for high-traffic applications.
+                                Started professional career with focus on web development using WordPress, HTML/CSS, and JavaScript. Developed websites and web applications, while building foundational skills in programming and system design.
                             </p>
                         </div>
                         <div class="flex flex-wrap gap-2 mt-2">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                C#
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                                WordPress
                             </span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                SQL Server
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                                JavaScript
                             </span>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                                Entity Framework
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                                HTML/CSS
                             </span>
                         </div>
                     </div>
@@ -134,57 +435,65 @@
     </div>
     
     <!-- Certifications -->
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-16">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 mb-16">
         <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Certifications</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex items-start hover:shadow-md transition-shadow duration-300">
                 <div class="flex-shrink-0 mr-4">
-                    <img src="/images/certifications/azure.png" alt="Microsoft Azure" class="w-16 h-16 object-contain" />
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
                 </div>
                 <div>
-                    <h3 class="font-bold text-gray-800 dark:text-white">Microsoft Certified: Azure Developer Associate</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">Microsoft</p>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Issued Jan 2024 · Expires Jan 2026</p>
+                    <h3 class="font-bold text-gray-800 dark:text-white">CCNAv7 Certification</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Cisco</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Issued 2023 · Expires 2026</p>
                 </div>
             </div>
             
             <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex items-start hover:shadow-md transition-shadow duration-300">
                 <div class="flex-shrink-0 mr-4">
-                    <img src="/images/certifications/dotnet.png" alt=".NET" class="w-16 h-16 object-contain" />
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
                 </div>
                 <div>
-                    <h3 class="font-bold text-gray-800 dark:text-white">Microsoft Certified: .NET Application Developer</h3>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">Microsoft</p>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Issued Mar 2023 · Expires Mar 2025</p>
+                    <h3 class="font-bold text-gray-800 dark:text-white">CCNAv7 Certification</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Cisco</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Issued 2022 · Expires 2025</p>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Learning Resources -->
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-        <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Learning Resources</h2>
+    <!-- Professional Development -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Professional Development</h2>
         
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Here are some of the resources I've found invaluable for continuous learning and staying updated with the latest technologies:
+        <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Continuous skill development is essential in the ever-evolving tech landscape. Here are some resources I use to stay updated with the latest technologies:
         </p>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <a href="https://docs.microsoft.com/en-us/dotnet/" target="_blank" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
-                <h3 class="font-bold text-blue-600 dark:text-blue-400">.NET Documentation</h3>
-                <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Comprehensive documentation for .NET development</p>
-            </a>
+            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300 bg-gray-50 dark:bg-gray-800">
+                <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-2">Online Courses</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Regularly complete courses on platforms like freeCodeCamp, Udemy, and Coursera to expand my knowledge in new technologies.</p>
+            </div>
             
-            <a href="https://docs.microsoft.com/en-us/azure/" target="_blank" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
-                <h3 class="font-bold text-blue-600 dark:text-blue-400">Azure Documentation</h3>
-                <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Documentation for Azure cloud services</p>
-            </a>
+            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300 bg-gray-50 dark:bg-gray-800">
+                <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-2">Technical Documentation</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Stay up-to-date with official documentation for frameworks and libraries I work with to implement best practices.</p>
+            </div>
             
-            <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" target="_blank" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300">
-                <h3 class="font-bold text-blue-600 dark:text-blue-400">Blazor Documentation</h3>
-                <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Learn about building web apps with Blazor</p>
-            </a>
+            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow duration-300 bg-gray-50 dark:bg-gray-800">
+                <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-2">Project-Based Learning</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Learn by doing: create personal projects to explore new technologies and strengthen existing skills through practical application.</p>
+            </div>
         </div>
     </div>
 </div>
