@@ -2,23 +2,7 @@
 
 // Theme handling
 window.initializeTheme = function() {
-    const theme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (theme === 'dark' || (!theme && prefersDark)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
-    
-    // Listen for OS theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        const newTheme = e.matches ? 'dark' : 'light';
-        if (!localStorage.getItem('theme')) {
-            // Only apply OS preference if user hasn't manually chosen a theme
-            document.documentElement.classList.toggle('dark', e.matches);
-        }
-    });
+    document.documentElement.classList.add('dark');
 };
 
 // Animation handling
@@ -167,3 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.initializeBackToTop();
     window.lazyLoadImages();
 });
+
+window.mediaQueryMatch = function(query) {
+    return window.matchMedia(query).matches;
+};
