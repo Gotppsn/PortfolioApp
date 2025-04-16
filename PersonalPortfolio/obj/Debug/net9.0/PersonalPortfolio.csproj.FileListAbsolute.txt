@@ -1080,10 +1080,10 @@ C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\ref\Perso
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\5bxb2meyqr-6gtje8foyt.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\jfyn57ckgy-gw3yqx4hpr.gz
 C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\sq5twvzukx-duwhu6jzhe.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.zoqfaq7zqm.pdb
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.083hf4uehi.wasm
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.083hf4uehi.wasm.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.zoqfaq7zqm.pdb.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\j6bcx96vto-083hf4uehi.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\xwgwym6dsy-zoqfaq7zqm.gz
-C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\mx6lsyc2pl-qx3yu195t0.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.csvv2przh4.pdb
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.8xiqtctfi7.wasm
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.8xiqtctfi7.wasm.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\bin\Debug\net9.0\wwwroot\_framework\PersonalPortfolio.csvv2przh4.pdb.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\j6bcx96vto-8xiqtctfi7.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\xwgwym6dsy-csvv2przh4.gz
+C:\Users\got01\Desktop\PortfolioApp\PersonalPortfolio\obj\Debug\net9.0\compressed\mx6lsyc2pl-qfmjppupmw.gz

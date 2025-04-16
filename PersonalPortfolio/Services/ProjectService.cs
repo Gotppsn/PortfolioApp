@@ -1351,6 +1351,7 @@ long readLongFromEEPROM(int address) {
                 }
             };
         }
+                #endregion
 
         private List<Project> InitializeProjects()
         {
@@ -1702,16 +1703,19 @@ long readLongFromEEPROM(int address) {
             };
         }
 
-        private List<BlogPost> InitializeBlogPosts()
+// Fix for the BlogPost initialization method in ProjectService.cs
+// Update the InitializeBlogPosts method to properly terminate the string
+
+private List<BlogPost> InitializeBlogPosts()
+{
+    return new List<BlogPost>
+    {
+        new BlogPost
         {
-            return new List<BlogPost>
-            {
-                new BlogPost
-                {
-                    Id = 1,
-                    Title = "Building Efficient Automation Systems with n8n Platform",
-                    Excerpt = "How I leveraged the n8n low-code platform to create powerful automation workflows for business processes, including notification systems, scheduling, and database management.",
-                    Content = @"# Building Efficient Automation Systems with n8n Platform
+            Id = 1,
+            Title = "Building Efficient Automation Systems with n8n Platform",
+            Excerpt = "How I leveraged the n8n low-code platform to create powerful automation workflows for business processes, including notification systems, scheduling, and database management.",
+            Content = @"# Building Efficient Automation Systems with n8n Platform
 
 Over the past three years at QUEST EDTECH, I've had the opportunity to implement numerous automation systems using the n8n low-code platform. These systems have dramatically improved our operational efficiency by automating repetitive tasks, ensuring timely notifications, and streamlining database management.
 
@@ -1779,7 +1783,7 @@ function transformStudentData(items) {
     }
     
     // Format phone number consistently
-    let phone = item.json.phone.replace(/\D/g, '');
+    let phone = item.json.phone.replace(/\\D/g, '');
     if (phone.startsWith('0')) {
       phone = '+66' + phone.substring(1);
     }
@@ -1793,3 +1797,76 @@ function transformStudentData(items) {
       lastUpdated: new Date().toISOString()
     };
   });
+}
+```
+
+### Error Handling and Notifications
+
+Robust error handling was crucial for reliable automation. I implemented a comprehensive system that:
+
+- Catches and logs all exceptions with detailed context
+- Sends alerts to the appropriate team members based on error type
+- Implements automatic retry mechanisms for transient failures
+- Creates trouble tickets for persistent issues
+- Maintains an error dashboard for monitoring trends
+
+### Webhooks and API Integrations
+
+The automation systems connect with various external services through webhooks and APIs:
+
+- Payment processors for transaction verification
+- Learning management systems for course data
+- Video conferencing platforms for class sessions
+- Email and SMS gateways for notifications
+- CRM systems for student relationship management
+
+## Impact and Results
+
+The implementation of these automation systems has had a measurable impact on our operations:
+
+- 60% reduction in administrative workload
+- 95% decrease in data entry errors
+- 22% increase in student attendance
+- 40% faster response time to student inquiries
+- 30% improvement in staff satisfaction ratings
+
+## Lessons Learned
+
+Throughout this journey, I've gained valuable insights into effective automation implementation:
+
+1. **Start small and iterate**: Begin with simple workflows and expand as you gain confidence.
+2. **Document extensively**: Thorough documentation is crucial for maintenance and knowledge transfer.
+3. **Build in monitoring**: Create comprehensive logging and alerting from the beginning.
+4. **Involve stakeholders early**: Regular feedback from end-users improves adoption and effectiveness.
+5. **Plan for failure**: Design systems assuming things will go wrong and implement appropriate safeguards.
+
+Automation with n8n has transformed our operational efficiency, allowing our team to focus on value-added activities rather than repetitive tasks. I'm continually expanding and improving these systems to further enhance our educational technology platform.",
+            ImageUrl = "/images/blog/blog-1.jpg",
+            PublishedDate = new DateTime(2024, 3, 15),
+            Categories = new List<string> { "Automation", "n8n" },
+            Tags = new List<string> { "Automation", "n8n", "JavaScript", "Workflow", "Low-Code" },
+            IsFeatured = true,
+            AuthorName = "Panupol Sonnuam",
+            AuthorImageUrl = "/images/profile.jpg",
+            ReadingTimeMinutes = 7
+        },
+        new BlogPost
+        {
+            Id = 2,
+            Title = "Implementing AI Chatbots with LLM Technology",
+            Excerpt = "A deep dive into creating intelligent chatbots using Large Language Models (LLM) and Flowise platform, with practical examples from my experience implementing them in business workflows.",
+            Content = "Full content goes here...",
+            ImageUrl = "/images/blog/blog-2.jpg",
+            PublishedDate = new DateTime(2024, 2, 28),
+            Categories = new List<string> { "AI", "Chatbots" },
+            Tags = new List<string> { "AI", "LLM", "Flowise", "Chatbots", "Natural Language Processing" },
+            IsFeatured = false,
+            AuthorName = "Panupol Sonnuam",
+            AuthorImageUrl = "/images/profile.jpg",
+            ReadingTimeMinutes = 9
+        }
+        // Add other blog posts as needed
+    };
+}
+    }
+}
