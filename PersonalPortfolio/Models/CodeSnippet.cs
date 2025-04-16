@@ -12,5 +12,8 @@ namespace PersonalPortfolio.Models
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime? UpdatedDate { get; set; }
         public bool IsPublic { get; set; } = false;
+        public string Author { get; set; } = "Panupol Sonnuam"; // Added to track authorship
+        public int ViewCount { get; set; } = 0; // Added to track popularity
+        public List<string> RelatedSnippets { get; set; } = new List<string>(); // Added for related content
     }
 }

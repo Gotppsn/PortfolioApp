@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oLfF0jBVxfJRIFqRTe8Q7076o7VsVkX/j+f5fuugJLQ=",
+  "Hash": "Rtu3z3T0MLHyowlXyU5MUU3V9evhIlnIwiAxZqlx4pE=",
   "Source": "PersonalPortfolio",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "nflubgchtt",
-      "Integrity": "/Qw+ko/9tkDMaE2f6WFxMuJoq0D43rYy98Hrqcv2FAw=",
+      "Fingerprint": "qx3yu195t0",
+      "Integrity": "bpqfiLwRICtsGrkhGduaAv4FIoIKXxNS4oxdqouLHyc=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net9.0\\blazor.boot.json"
@@ -871,8 +871,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "ik7b0nemef",
-      "Integrity": "EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo=",
+      "Fingerprint": "zoqfaq7zqm",
+      "Integrity": "HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net9.0\\PersonalPortfolio.pdb"
@@ -892,8 +892,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "bm82ns8b8r",
-      "Integrity": "3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E=",
+      "Fingerprint": "083hf4uehi",
+      "Integrity": "kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\webcil\\PersonalPortfolio.wasm"
@@ -7178,12 +7178,12 @@
       "OriginalItemSpec": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-bm82ns8b8r.gz",
+      "Identity": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-083hf4uehi.gz",
       "SourceId": "PersonalPortfolio",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "_framework/PersonalPortfolio#[.{fingerprint=bm82ns8b8r}]!.wasm.gz",
+      "RelativePath": "_framework/PersonalPortfolio#[.{fingerprint=083hf4uehi}]!.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -7192,8 +7192,8 @@
       "RelatedAsset": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\PersonalPortfolio.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "lrmt1trdc0",
-      "Integrity": "gT1fllvlrlxlWwdQ7mFQ3nysj5741GHlDUKDXJlv88A=",
+      "Fingerprint": "ocmel5lm0z",
+      "Integrity": "WF70A2yCmCbdmAwNlYN2h4YclodvBGRqStMIKBPeHTo=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\PersonalPortfolio.wasm"
@@ -7808,7 +7808,7 @@
       "OriginalItemSpec": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\Microsoft.VisualBasic.wasm"
     },
     {
-      "Identity": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\mx6lsyc2pl-nflubgchtt.gz",
+      "Identity": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\mx6lsyc2pl-qx3yu195t0.gz",
       "SourceId": "PersonalPortfolio",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\",
@@ -7822,8 +7822,8 @@
       "RelatedAsset": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "ppv1de5xc8",
-      "Integrity": "zQth6ZnUc6hGlZHgGyOcasOwLZ7MVh5BxXxiykurD5k=",
+      "Fingerprint": "cdoeqcdi38",
+      "Integrity": "IDP0U+82G0C5FSF4q+g1v6jqoNk0KWpd7YpSRGIGDPk=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -9320,12 +9320,12 @@
       "OriginalItemSpec": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-ik7b0nemef.gz",
+      "Identity": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-zoqfaq7zqm.gz",
       "SourceId": "PersonalPortfolio",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "_framework/PersonalPortfolio#[.{fingerprint=ik7b0nemef}]!.pdb.gz",
+      "RelativePath": "_framework/PersonalPortfolio#[.{fingerprint=zoqfaq7zqm}]!.pdb.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -9334,8 +9334,8 @@
       "RelatedAsset": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\PersonalPortfolio.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "71ztnxkdeu",
-      "Integrity": "m3G+uVuhU6R0Is2ioAmDJPYe8u9uGWnM2Sq+Iklcfek=",
+      "Fingerprint": "jhne5ljuky",
+      "Integrity": "Z7ffXoiCR3dnBSVDxIoWvgzqb9TUFCwzbaqjFG4qdEQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\PersonalPortfolio.pdb"
@@ -10852,7 +10852,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/Qw+ko/9tkDMaE2f6WFxMuJoq0D43rYy98Hrqcv2FAw=\""
+          "Value": "\"bpqfiLwRICtsGrkhGduaAv4FIoIKXxNS4oxdqouLHyc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bpqfiLwRICtsGrkhGduaAv4FIoIKXxNS4oxdqouLHyc="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/blazor.boot.json",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\mx6lsyc2pl-qx3yu195t0.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000081188601"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12316"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"IDP0U+82G0C5FSF4q+g1v6jqoNk0KWpd7YpSRGIGDPk=\""
         },
         {
           "Name": "Last-Modified",
@@ -10861,45 +10900,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-/Qw+ko/9tkDMaE2f6WFxMuJoq0D43rYy98Hrqcv2FAw="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\mx6lsyc2pl-nflubgchtt.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000081195193"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "12315"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"zQth6ZnUc6hGlZHgGyOcasOwLZ7MVh5BxXxiykurD5k=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:30:33 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -10915,19 +10915,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"/Qw+ko/9tkDMaE2f6WFxMuJoq0D43rYy98Hrqcv2FAw=\""
+          "Value": "W/\"bpqfiLwRICtsGrkhGduaAv4FIoIKXxNS4oxdqouLHyc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/Qw+ko/9tkDMaE2f6WFxMuJoq0D43rYy98Hrqcv2FAw="
+          "Value": "sha256-bpqfiLwRICtsGrkhGduaAv4FIoIKXxNS4oxdqouLHyc="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\mx6lsyc2pl-nflubgchtt.gz",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\mx6lsyc2pl-qx3yu195t0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -10936,7 +10936,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12315"
+          "Value": "12316"
         },
         {
           "Name": "Content-Type",
@@ -10944,11 +10944,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zQth6ZnUc6hGlZHgGyOcasOwLZ7MVh5BxXxiykurD5k=\""
+          "Value": "\"IDP0U+82G0C5FSF4q+g1v6jqoNk0KWpd7YpSRGIGDPk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 14:30:33 GMT"
+          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10966,7 +10966,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zQth6ZnUc6hGlZHgGyOcasOwLZ7MVh5BxXxiykurD5k="
+          "Value": "sha256-IDP0U+82G0C5FSF4q+g1v6jqoNk0KWpd7YpSRGIGDPk="
         }
       ]
     },
@@ -22432,7 +22432,7 @@
       ]
     },
     {
-      "Route": "_framework/PersonalPortfolio.bm82ns8b8r.wasm",
+      "Route": "_framework/PersonalPortfolio.083hf4uehi.wasm",
       "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\PersonalPortfolio.wasm",
       "Selectors": [],
       "ResponseHeaders": [
@@ -22442,7 +22442,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "264469"
+          "Value": "473877"
         },
         {
           "Name": "Content-Type",
@@ -22450,11 +22450,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E=\""
+          "Value": "\"kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:32 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22464,7 +22464,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "bm82ns8b8r"
+          "Value": "083hf4uehi"
         },
         {
           "Name": "label",
@@ -22472,18 +22472,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E="
+          "Value": "sha256-kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI="
         }
       ]
     },
     {
-      "Route": "_framework/PersonalPortfolio.bm82ns8b8r.wasm",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-bm82ns8b8r.gz",
+      "Route": "_framework/PersonalPortfolio.083hf4uehi.wasm",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-083hf4uehi.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000017090219"
+          "Quality": "0.000013531067"
         }
       ],
       "ResponseHeaders": [
@@ -22493,15 +22493,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58512"
+          "Value": "73903"
         },
         {
           "Name": "ETag",
-          "Value": "\"gT1fllvlrlxlWwdQ7mFQ3nysj5741GHlDUKDXJlv88A=\""
+          "Value": "\"WF70A2yCmCbdmAwNlYN2h4YclodvBGRqStMIKBPeHTo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22521,13 +22521,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E=\""
+          "Value": "W/\"kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "bm82ns8b8r"
+          "Value": "083hf4uehi"
         },
         {
           "Name": "label",
@@ -22535,13 +22535,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E="
+          "Value": "sha256-kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI="
         }
       ]
     },
     {
-      "Route": "_framework/PersonalPortfolio.bm82ns8b8r.wasm.gz",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-bm82ns8b8r.gz",
+      "Route": "_framework/PersonalPortfolio.083hf4uehi.wasm.gz",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-083hf4uehi.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -22550,7 +22550,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58512"
+          "Value": "73903"
         },
         {
           "Name": "Content-Type",
@@ -22558,11 +22558,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gT1fllvlrlxlWwdQ7mFQ3nysj5741GHlDUKDXJlv88A=\""
+          "Value": "\"WF70A2yCmCbdmAwNlYN2h4YclodvBGRqStMIKBPeHTo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22580,7 +22580,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "bm82ns8b8r"
+          "Value": "083hf4uehi"
         },
         {
           "Name": "label",
@@ -22588,168 +22588,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gT1fllvlrlxlWwdQ7mFQ3nysj5741GHlDUKDXJlv88A="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/PersonalPortfolio.ik7b0nemef.pdb",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\PersonalPortfolio.pdb",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "99436"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:32 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ik7b0nemef"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/PersonalPortfolio.pdb"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/PersonalPortfolio.ik7b0nemef.pdb",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-ik7b0nemef.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000012478786"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "80135"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"m3G+uVuhU6R0Is2ioAmDJPYe8u9uGWnM2Sq+Iklcfek=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ik7b0nemef"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/PersonalPortfolio.pdb"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/PersonalPortfolio.ik7b0nemef.pdb.gz",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-ik7b0nemef.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "80135"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"m3G+uVuhU6R0Is2ioAmDJPYe8u9uGWnM2Sq+Iklcfek=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ik7b0nemef"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/PersonalPortfolio.pdb.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-m3G+uVuhU6R0Is2ioAmDJPYe8u9uGWnM2Sq+Iklcfek="
+          "Value": "sha256-WF70A2yCmCbdmAwNlYN2h4YclodvBGRqStMIKBPeHTo="
         }
       ]
     },
@@ -22764,7 +22603,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "99436"
+          "Value": "109160"
         },
         {
           "Name": "Content-Type",
@@ -22772,11 +22611,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo=\""
+          "Value": "\"HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:32 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22786,18 +22625,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo="
+          "Value": "sha256-HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY="
         }
       ]
     },
     {
       "Route": "_framework/PersonalPortfolio.pdb",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-ik7b0nemef.gz",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-zoqfaq7zqm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000012478786"
+          "Quality": "0.000010896688"
         }
       ],
       "ResponseHeaders": [
@@ -22807,15 +22646,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "80135"
+          "Value": "91770"
         },
         {
           "Name": "ETag",
-          "Value": "\"m3G+uVuhU6R0Is2ioAmDJPYe8u9uGWnM2Sq+Iklcfek=\""
+          "Value": "\"Z7ffXoiCR3dnBSVDxIoWvgzqb9TUFCwzbaqjFG4qdEQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22835,19 +22674,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo=\""
+          "Value": "W/\"HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-EhfzeTJ/83R/nm/FF4I7F7CpkRRdlSkw6TSOeBZRojo="
+          "Value": "sha256-HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY="
         }
       ]
     },
     {
       "Route": "_framework/PersonalPortfolio.pdb.gz",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-ik7b0nemef.gz",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-zoqfaq7zqm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -22856,7 +22695,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "80135"
+          "Value": "91770"
         },
         {
           "Name": "Content-Type",
@@ -22864,11 +22703,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"m3G+uVuhU6R0Is2ioAmDJPYe8u9uGWnM2Sq+Iklcfek=\""
+          "Value": "\"Z7ffXoiCR3dnBSVDxIoWvgzqb9TUFCwzbaqjFG4qdEQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22886,7 +22725,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-m3G+uVuhU6R0Is2ioAmDJPYe8u9uGWnM2Sq+Iklcfek="
+          "Value": "sha256-Z7ffXoiCR3dnBSVDxIoWvgzqb9TUFCwzbaqjFG4qdEQ="
         }
       ]
     },
@@ -22901,7 +22740,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "264469"
+          "Value": "473877"
         },
         {
           "Name": "Content-Type",
@@ -22909,11 +22748,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E=\""
+          "Value": "\"kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:32 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22923,18 +22762,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E="
+          "Value": "sha256-kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI="
         }
       ]
     },
     {
       "Route": "_framework/PersonalPortfolio.wasm",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-bm82ns8b8r.gz",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-083hf4uehi.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000017090219"
+          "Quality": "0.000013531067"
         }
       ],
       "ResponseHeaders": [
@@ -22944,15 +22783,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58512"
+          "Value": "73903"
         },
         {
           "Name": "ETag",
-          "Value": "\"gT1fllvlrlxlWwdQ7mFQ3nysj5741GHlDUKDXJlv88A=\""
+          "Value": "\"WF70A2yCmCbdmAwNlYN2h4YclodvBGRqStMIKBPeHTo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22972,19 +22811,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E=\""
+          "Value": "W/\"kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-3cDtMl3OOVekRM5MCyYedz5YX/KF5TlfOlNyJXhU29E="
+          "Value": "sha256-kIn7CwmeMnE/5fYBQ+4pd8GQB8xOwaSGsbOfLLRptPI="
         }
       ]
     },
     {
       "Route": "_framework/PersonalPortfolio.wasm.gz",
-      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-bm82ns8b8r.gz",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\j6bcx96vto-083hf4uehi.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -22993,7 +22832,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58512"
+          "Value": "73903"
         },
         {
           "Name": "Content-Type",
@@ -23001,11 +22840,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gT1fllvlrlxlWwdQ7mFQ3nysj5741GHlDUKDXJlv88A=\""
+          "Value": "\"WF70A2yCmCbdmAwNlYN2h4YclodvBGRqStMIKBPeHTo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 02:20:33 GMT"
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23023,7 +22862,168 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gT1fllvlrlxlWwdQ7mFQ3nysj5741GHlDUKDXJlv88A="
+          "Value": "sha256-WF70A2yCmCbdmAwNlYN2h4YclodvBGRqStMIKBPeHTo="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/PersonalPortfolio.zoqfaq7zqm.pdb",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\PersonalPortfolio.pdb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "109160"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoqfaq7zqm"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/PersonalPortfolio.pdb"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/PersonalPortfolio.zoqfaq7zqm.pdb",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-zoqfaq7zqm.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000010896688"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "91770"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Z7ffXoiCR3dnBSVDxIoWvgzqb9TUFCwzbaqjFG4qdEQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoqfaq7zqm"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/PersonalPortfolio.pdb"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HamBpzi04SCnOsk7itCDWh7dW4zNzmMavQe4Acvl0FY="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/PersonalPortfolio.zoqfaq7zqm.pdb.gz",
+      "AssetFile": "C:\\Users\\got01\\Desktop\\PortfolioApp\\PersonalPortfolio\\obj\\Debug\\net9.0\\compressed\\xwgwym6dsy-zoqfaq7zqm.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "91770"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Z7ffXoiCR3dnBSVDxIoWvgzqb9TUFCwzbaqjFG4qdEQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 16 Apr 2025 03:16:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zoqfaq7zqm"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/PersonalPortfolio.pdb.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Z7ffXoiCR3dnBSVDxIoWvgzqb9TUFCwzbaqjFG4qdEQ="
         }
       ]
     },

@@ -14,7 +14,15 @@ namespace PersonalPortfolio.Models
         public DateTime? LastUpdatedDate { get; set; }
         public bool IsDraft { get; set; }
         public bool IsFeatured { get; set; }
-        public int ReadingTimeMinutes => CalculateReadingTime();
+        
+        // Changed from computed property to regular property with backing field
+        private int _readingTimeMinutes;
+        public int ReadingTimeMinutes 
+        { 
+            get => _readingTimeMinutes > 0 ? _readingTimeMinutes : CalculateReadingTime();
+            set => _readingTimeMinutes = value;
+        }
+        
         public List<string> Categories { get; set; } = new List<string>();
         public List<string> Tags { get; set; } = new List<string>();
         public string AuthorName { get; set; } = string.Empty;

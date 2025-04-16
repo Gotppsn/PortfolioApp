@@ -1,44 +1,82 @@
 @inject ProjectService ProjectService
 
-<div class="relative border-l-4 border-blue-600 dark:border-blue-500 pl-6 ml-4 mb-8">
+<div class="relative border-l-4 border-gradient-to-b from-blue-600 via-purple-600 to-indigo-600 pl-6 ml-4 mb-8">
     @foreach (var experience in ProjectService.GetAllExperiences())
     {
-        <div class="mb-10 relative animate-fadeIn" style="animation-delay: @($"{experiences.IndexOf(experience) * 200}ms")">
-            <div class="absolute -left-10 mt-1.5 h-6 w-6 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center">
-                <div class="h-3 w-3 rounded-full bg-white"></div>
-            </div>
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white">@experience.Position</h3>
-                <div class="text-lg text-gray-600 dark:text-gray-300">@experience.Company | @experience.Location</div>
-                <div class="text-sm text-gray-500 dark:text-gray-400 mb-3">
-                    @experience.StartDate.ToString("MMM yyyy") - @(experience.Current ? "Present" : experience.EndDate?.ToString("MMM yyyy"))
+        <div class="mb-10 relative animate-on-scroll" 
+             style="animation-delay: @($"{Array.IndexOf(ProjectService.GetAllExperiences().ToArray(), experience) * 200}ms")">
+            <!-- Timeline Node -->
+            <div class="absolute -left-10 mt-1.5 flex items-center justify-center">
+                <div class="h-8 w-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div class="h-3 w-3 rounded-full bg-white"></div>
                 </div>
-                <p class="mb-4 text-gray-700 dark:text-gray-300">@experience.Description</p>
-                <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                    @if (expandedExperienceId == experience.Id)
-                    {
-                        @foreach (var achievement in experience.Achievements)
-                        {
-                            <li>@achievement</li>
-                        }
-                        <li class="text-blue-600 dark:text-blue-400 cursor-pointer mt-2 list-none font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors" @onclick="() => ShowAllAchievements(experience.Id)">
-                            Show less
-                        </li>
-                    }
-                    else
-                    {
-                        @foreach (var achievement in experience.Achievements.Take(2))
-                        {
-                            <li>@achievement</li>
-                        }
-                        @if (experience.Achievements.Count > 2)
-                        {
-                            <li class="text-blue-600 dark:text-blue-400 cursor-pointer mt-2 list-none font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors" @onclick="() => ShowAllAchievements(experience.Id)">
-                                See all achievements (@experience.Achievements.Count)
-                            </li>
-                        }
-                    }
-                </ul>
+            </div>
+            
+            <!-- Experience Card -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-4 text-white relative">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h3 class="text-xl font-bold">@experience.Position</h3>
+                            <div class="text-white/90">@experience.Company</div>
+                        </div>
+                        <div class="mt-2 md:mt-0 bg-white/20 px-3 py-1 rounded-lg backdrop-blur-sm text-sm">
+                            <span>@experience.StartDate.ToString("MMM yyyy") - @(experience.Current ? "Present" : experience.EndDate?.ToString("MMM yyyy"))</span>
+                            <div>@experience.Location</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="p-6">
+                    <p class="mb-4 text-gray-700 dark:text-gray-300">@experience.Description</p>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 dark:text-white mb-2">Key Achievements</h4>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            @if (expandedExperienceId == experience.Id)
+                            {
+                                @foreach (var achievement in experience.Achievements)
+                                {
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span>@achievement</span>
+                                    </li>
+                                }
+                                <li class="mt-2 text-blue-600 dark:text-blue-400 cursor-pointer list-none flex items-center hover:text-blue-800 dark:hover:text-blue-300 transition-colors" @onclick="() => ShowAllAchievements(experience.Id)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                    Show less
+                                </li>
+                            }
+                            else
+                            {
+                                @foreach (var achievement in experience.Achievements.Take(2))
+                                {
+                                    <li class="flex items-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span>@achievement</span>
+                                    </li>
+                                }
+                                @if (experience.Achievements.Count > 2)
+                                {
+                                    <li class="mt-2 text-blue-600 dark:text-blue-400 cursor-pointer list-none flex items-center hover:text-blue-800 dark:hover:text-blue-300 transition-colors" @onclick="() => ShowAllAchievements(experience.Id)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                        See all achievements (@experience.Achievements.Count)
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     }
@@ -46,13 +84,7 @@
 
 @code {
     private int? expandedExperienceId;
-    private List<Experience> experiences;
-
-    protected override void OnInitialized()
-    {
-        experiences = ProjectService.GetAllExperiences();
-    }
-
+    
     private void ShowAllAchievements(int experienceId)
     {
         expandedExperienceId = expandedExperienceId == experienceId ? null : experienceId;
